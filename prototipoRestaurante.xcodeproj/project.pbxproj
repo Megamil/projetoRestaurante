@@ -7,19 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		860984901A9829D000D89C51 /* TabInitUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8609848F1A9829D000D89C51 /* TabInitUITabBarController.swift */; };
 		860A40F21A90041000A5E6E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A40F11A90041000A5E6E7 /* AppDelegate.swift */; };
-		860A40F41A90041000A5E6E7 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A40F31A90041000A5E6E7 /* FirstViewController.swift */; };
-		860A40F61A90041000A5E6E7 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A40F51A90041000A5E6E7 /* SecondViewController.swift */; };
+		860A40F41A90041000A5E6E7 /* PratosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A40F31A90041000A5E6E7 /* PratosViewController.swift */; };
+		860A40F61A90041000A5E6E7 /* LanchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A40F51A90041000A5E6E7 /* LanchesViewController.swift */; };
 		860A40F91A90041000A5E6E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 860A40F71A90041000A5E6E7 /* Main.storyboard */; };
 		860A40FB1A90041000A5E6E7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 860A40FA1A90041000A5E6E7 /* Images.xcassets */; };
 		860A40FE1A90041000A5E6E7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 860A40FC1A90041000A5E6E7 /* LaunchScreen.xib */; };
 		860A410A1A90041000A5E6E7 /* prototipoRestauranteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A41091A90041000A5E6E7 /* prototipoRestauranteTests.swift */; };
+		862EF03E1A9AC73100AB9A07 /* arroz_branco.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0201A9AC73100AB9A07 /* arroz_branco.png */; };
+		862EF03F1A9AC73100AB9A07 /* bandeja.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0211A9AC73100AB9A07 /* bandeja.png */; };
+		862EF0401A9AC73100AB9A07 /* batata_frita.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0221A9AC73100AB9A07 /* batata_frita.png */; };
+		862EF0411A9AC73100AB9A07 /* bife.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0231A9AC73100AB9A07 /* bife.png */; };
+		862EF0421A9AC73100AB9A07 /* bolo.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0241A9AC73100AB9A07 /* bolo.png */; };
+		862EF0431A9AC73100AB9A07 /* calabresa.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0251A9AC73100AB9A07 /* calabresa.png */; };
+		862EF0441A9AC73100AB9A07 /* copos.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0261A9AC73100AB9A07 /* copos.png */; };
+		862EF0451A9AC73100AB9A07 /* coxinha.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0271A9AC73100AB9A07 /* coxinha.png */; };
+		862EF0461A9AC73100AB9A07 /* croissant.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0281A9AC73100AB9A07 /* croissant.png */; };
+		862EF0471A9AC73100AB9A07 /* doces.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0291A9AC73100AB9A07 /* doces.png */; };
+		862EF0481A9AC73100AB9A07 /* enrolado_salsicha.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF02A1A9AC73100AB9A07 /* enrolado_salsicha.png */; };
+		862EF0491A9AC73100AB9A07 /* feijao.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF02B1A9AC73100AB9A07 /* feijao.png */; };
+		862EF04A1A9AC73100AB9A07 /* file_frango.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF02C1A9AC73100AB9A07 /* file_frango.png */; };
+		862EF04B1A9AC73100AB9A07 /* frago_frito.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF02D1A9AC73100AB9A07 /* frago_frito.png */; };
+		862EF04C1A9AC73100AB9A07 /* frango_molho.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF02E1A9AC73100AB9A07 /* frango_molho.png */; };
+		862EF04D1A9AC73100AB9A07 /* garrafa.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF02F1A9AC73100AB9A07 /* garrafa.png */; };
+		862EF04E1A9AC73100AB9A07 /* garrafa2l.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0301A9AC73100AB9A07 /* garrafa2l.png */; };
+		862EF04F1A9AC73100AB9A07 /* humburguer.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0311A9AC73100AB9A07 /* humburguer.png */; };
+		862EF0501A9AC73100AB9A07 /* lata.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0321A9AC73100AB9A07 /* lata.png */; };
+		862EF0511A9AC73100AB9A07 /* misto_quente.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0331A9AC73100AB9A07 /* misto_quente.png */; };
+		862EF0521A9AC73100AB9A07 /* ovo_frito.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0341A9AC73100AB9A07 /* ovo_frito.png */; };
+		862EF0531A9AC73100AB9A07 /* pao_queijo.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0351A9AC73100AB9A07 /* pao_queijo.png */; };
+		862EF0541A9AC73100AB9A07 /* peixe.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0361A9AC73100AB9A07 /* peixe.png */; };
+		862EF0551A9AC73100AB9A07 /* pizza.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0371A9AC73100AB9A07 /* pizza.png */; };
+		862EF0561A9AC73100AB9A07 /* prato.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0381A9AC73100AB9A07 /* prato.png */; };
+		862EF0571A9AC73100AB9A07 /* salada.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0391A9AC73100AB9A07 /* salada.png */; };
+		862EF0581A9AC73100AB9A07 /* salgados.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF03A1A9AC73100AB9A07 /* salgados.png */; };
+		862EF0591A9AC73100AB9A07 /* salsicha.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF03B1A9AC73100AB9A07 /* salsicha.png */; };
+		862EF05A1A9AC73100AB9A07 /* sanduiche.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF03C1A9AC73100AB9A07 /* sanduiche.png */; };
+		862EF05B1A9AC73100AB9A07 /* suco.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF03D1A9AC73100AB9A07 /* suco.png */; };
+		8644AEF11A9A5CE00084433A /* BebidasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8644AEF01A9A5CE00084433A /* BebidasViewController.swift */; };
 		865C5F201A9231A2003E45BA /* backgroundlanches.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 865C5F1F1A9231A2003E45BA /* backgroundlanches.jpg */; };
 		865C5F221A923252003E45BA /* imagemtoposuperiorlanche.png in Resources */ = {isa = PBXBuildFile; fileRef = 865C5F211A923252003E45BA /* imagemtoposuperiorlanche.png */; };
 		865C5F241A93E3DF003E45BA /* semana.png in Resources */ = {isa = PBXBuildFile; fileRef = 865C5F231A93E3DF003E45BA /* semana.png */; };
 		865C5F261A93E5C0003E45BA /* sugestao.png in Resources */ = {isa = PBXBuildFile; fileRef = 865C5F251A93E5C0003E45BA /* sugestao.png */; };
 		865C5F281A93EA55003E45BA /* sugestao-selecionada.png in Resources */ = {isa = PBXBuildFile; fileRef = 865C5F271A93EA55003E45BA /* sugestao-selecionada.png */; };
-		865C5F5A1A940309003E45BA /* bandeja.png in Resources */ = {isa = PBXBuildFile; fileRef = 865C5F591A940309003E45BA /* bandeja.png */; };
 		8680CB0A1A9131F100657539 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8680CB021A9131F100657539 /* background.jpg */; };
 		8680CB0B1A9131F100657539 /* cupom.png in Resources */ = {isa = PBXBuildFile; fileRef = 8680CB031A9131F100657539 /* cupom.png */; };
 		8680CB0C1A9131F100657539 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8680CB041A9131F100657539 /* icon.png */; };
@@ -29,6 +60,10 @@
 		8680CB101A9131F100657539 /* lanches.png in Resources */ = {isa = PBXBuildFile; fileRef = 8680CB081A9131F100657539 /* lanches.png */; };
 		8680CB111A9131F100657539 /* refeicoes.png in Resources */ = {isa = PBXBuildFile; fileRef = 8680CB091A9131F100657539 /* refeicoes.png */; };
 		8680CB131A91505800657539 /* cupomOriginal.png in Resources */ = {isa = PBXBuildFile; fileRef = 8680CB121A91505800657539 /* cupomOriginal.png */; };
+		86FFA1DB1A9A363300C1E793 /* bebidas.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FFA1DA1A9A363300C1E793 /* bebidas.png */; };
+		86FFA1DD1A9A385F00C1E793 /* pedido.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FFA1DC1A9A385F00C1E793 /* pedido.png */; };
+		86FFA1DF1A9A489200C1E793 /* backgroundbebidas.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FFA1DE1A9A489200C1E793 /* backgroundbebidas.png */; };
+		86FFA1E11A9A499800C1E793 /* copos.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FFA1E01A9A499800C1E793 /* copos.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,23 +77,54 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8609848F1A9829D000D89C51 /* TabInitUITabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabInitUITabBarController.swift; sourceTree = "<group>"; };
 		860A40EC1A90040F00A5E6E7 /* prototipoRestaurante.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = prototipoRestaurante.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		860A40F01A90040F00A5E6E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		860A40F11A90041000A5E6E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		860A40F31A90041000A5E6E7 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		860A40F51A90041000A5E6E7 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		860A40F31A90041000A5E6E7 /* PratosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratosViewController.swift; sourceTree = "<group>"; };
+		860A40F51A90041000A5E6E7 /* LanchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanchesViewController.swift; sourceTree = "<group>"; };
 		860A40F81A90041000A5E6E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		860A40FA1A90041000A5E6E7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		860A40FD1A90041000A5E6E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		860A41031A90041000A5E6E7 /* prototipoRestauranteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = prototipoRestauranteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		860A41081A90041000A5E6E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		860A41091A90041000A5E6E7 /* prototipoRestauranteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prototipoRestauranteTests.swift; sourceTree = "<group>"; };
+		862EF0201A9AC73100AB9A07 /* arroz_branco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arroz_branco.png; sourceTree = "<group>"; };
+		862EF0211A9AC73100AB9A07 /* bandeja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bandeja.png; sourceTree = "<group>"; };
+		862EF0221A9AC73100AB9A07 /* batata_frita.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = batata_frita.png; sourceTree = "<group>"; };
+		862EF0231A9AC73100AB9A07 /* bife.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bife.png; sourceTree = "<group>"; };
+		862EF0241A9AC73100AB9A07 /* bolo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bolo.png; sourceTree = "<group>"; };
+		862EF0251A9AC73100AB9A07 /* calabresa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calabresa.png; sourceTree = "<group>"; };
+		862EF0261A9AC73100AB9A07 /* copos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = copos.png; sourceTree = "<group>"; };
+		862EF0271A9AC73100AB9A07 /* coxinha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coxinha.png; sourceTree = "<group>"; };
+		862EF0281A9AC73100AB9A07 /* croissant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = croissant.png; sourceTree = "<group>"; };
+		862EF0291A9AC73100AB9A07 /* doces.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doces.png; sourceTree = "<group>"; };
+		862EF02A1A9AC73100AB9A07 /* enrolado_salsicha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enrolado_salsicha.png; sourceTree = "<group>"; };
+		862EF02B1A9AC73100AB9A07 /* feijao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feijao.png; sourceTree = "<group>"; };
+		862EF02C1A9AC73100AB9A07 /* file_frango.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = file_frango.png; sourceTree = "<group>"; };
+		862EF02D1A9AC73100AB9A07 /* frago_frito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frago_frito.png; sourceTree = "<group>"; };
+		862EF02E1A9AC73100AB9A07 /* frango_molho.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frango_molho.png; sourceTree = "<group>"; };
+		862EF02F1A9AC73100AB9A07 /* garrafa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = garrafa.png; sourceTree = "<group>"; };
+		862EF0301A9AC73100AB9A07 /* garrafa2l.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = garrafa2l.png; sourceTree = "<group>"; };
+		862EF0311A9AC73100AB9A07 /* humburguer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = humburguer.png; sourceTree = "<group>"; };
+		862EF0321A9AC73100AB9A07 /* lata.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lata.png; sourceTree = "<group>"; };
+		862EF0331A9AC73100AB9A07 /* misto_quente.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = misto_quente.png; sourceTree = "<group>"; };
+		862EF0341A9AC73100AB9A07 /* ovo_frito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ovo_frito.png; sourceTree = "<group>"; };
+		862EF0351A9AC73100AB9A07 /* pao_queijo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pao_queijo.png; sourceTree = "<group>"; };
+		862EF0361A9AC73100AB9A07 /* peixe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = peixe.png; sourceTree = "<group>"; };
+		862EF0371A9AC73100AB9A07 /* pizza.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pizza.png; sourceTree = "<group>"; };
+		862EF0381A9AC73100AB9A07 /* prato.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prato.png; sourceTree = "<group>"; };
+		862EF0391A9AC73100AB9A07 /* salada.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = salada.png; sourceTree = "<group>"; };
+		862EF03A1A9AC73100AB9A07 /* salgados.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = salgados.png; sourceTree = "<group>"; };
+		862EF03B1A9AC73100AB9A07 /* salsicha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = salsicha.png; sourceTree = "<group>"; };
+		862EF03C1A9AC73100AB9A07 /* sanduiche.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sanduiche.png; sourceTree = "<group>"; };
+		862EF03D1A9AC73100AB9A07 /* suco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = suco.png; sourceTree = "<group>"; };
+		8644AEF01A9A5CE00084433A /* BebidasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BebidasViewController.swift; sourceTree = "<group>"; };
 		865C5F1F1A9231A2003E45BA /* backgroundlanches.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backgroundlanches.jpg; sourceTree = "<group>"; };
 		865C5F211A923252003E45BA /* imagemtoposuperiorlanche.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imagemtoposuperiorlanche.png; sourceTree = "<group>"; };
 		865C5F231A93E3DF003E45BA /* semana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = semana.png; sourceTree = "<group>"; };
 		865C5F251A93E5C0003E45BA /* sugestao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sugestao.png; sourceTree = "<group>"; };
 		865C5F271A93EA55003E45BA /* sugestao-selecionada.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sugestao-selecionada.png"; sourceTree = "<group>"; };
-		865C5F591A940309003E45BA /* bandeja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bandeja.png; sourceTree = "<group>"; };
 		8680CB021A9131F100657539 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		8680CB031A9131F100657539 /* cupom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cupom.png; sourceTree = "<group>"; };
 		8680CB041A9131F100657539 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -68,6 +134,10 @@
 		8680CB081A9131F100657539 /* lanches.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lanches.png; sourceTree = "<group>"; };
 		8680CB091A9131F100657539 /* refeicoes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refeicoes.png; sourceTree = "<group>"; };
 		8680CB121A91505800657539 /* cupomOriginal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cupomOriginal.png; sourceTree = "<group>"; };
+		86FFA1DA1A9A363300C1E793 /* bebidas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bebidas.png; sourceTree = "<group>"; };
+		86FFA1DC1A9A385F00C1E793 /* pedido.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pedido.png; sourceTree = "<group>"; };
+		86FFA1DE1A9A489200C1E793 /* backgroundbebidas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundbebidas.png; sourceTree = "<group>"; };
+		86FFA1E01A9A499800C1E793 /* copos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = copos.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,11 +179,14 @@
 		860A40EE1A90040F00A5E6E7 /* prototipoRestaurante */ = {
 			isa = PBXGroup;
 			children = (
+				862EF01F1A9AC73100AB9A07 /* iconList */,
 				8680CB011A9131F100657539 /* imagens */,
 				860A40F11A90041000A5E6E7 /* AppDelegate.swift */,
-				860A40F31A90041000A5E6E7 /* FirstViewController.swift */,
-				860A40F51A90041000A5E6E7 /* SecondViewController.swift */,
+				8644AEF01A9A5CE00084433A /* BebidasViewController.swift */,
+				860A40F31A90041000A5E6E7 /* PratosViewController.swift */,
+				860A40F51A90041000A5E6E7 /* LanchesViewController.swift */,
 				860A40F71A90041000A5E6E7 /* Main.storyboard */,
+				8609848F1A9829D000D89C51 /* TabInitUITabBarController.swift */,
 				860A40FA1A90041000A5E6E7 /* Images.xcassets */,
 				860A40FC1A90041000A5E6E7 /* LaunchScreen.xib */,
 				860A40EF1A90040F00A5E6E7 /* Supporting Files */,
@@ -146,6 +219,43 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		862EF01F1A9AC73100AB9A07 /* iconList */ = {
+			isa = PBXGroup;
+			children = (
+				862EF0201A9AC73100AB9A07 /* arroz_branco.png */,
+				862EF0211A9AC73100AB9A07 /* bandeja.png */,
+				862EF0221A9AC73100AB9A07 /* batata_frita.png */,
+				862EF0231A9AC73100AB9A07 /* bife.png */,
+				862EF0241A9AC73100AB9A07 /* bolo.png */,
+				862EF0251A9AC73100AB9A07 /* calabresa.png */,
+				862EF0261A9AC73100AB9A07 /* copos.png */,
+				862EF0271A9AC73100AB9A07 /* coxinha.png */,
+				862EF0281A9AC73100AB9A07 /* croissant.png */,
+				862EF0291A9AC73100AB9A07 /* doces.png */,
+				862EF02A1A9AC73100AB9A07 /* enrolado_salsicha.png */,
+				862EF02B1A9AC73100AB9A07 /* feijao.png */,
+				862EF02C1A9AC73100AB9A07 /* file_frango.png */,
+				862EF02D1A9AC73100AB9A07 /* frago_frito.png */,
+				862EF02E1A9AC73100AB9A07 /* frango_molho.png */,
+				862EF02F1A9AC73100AB9A07 /* garrafa.png */,
+				862EF0301A9AC73100AB9A07 /* garrafa2l.png */,
+				862EF0311A9AC73100AB9A07 /* humburguer.png */,
+				862EF0321A9AC73100AB9A07 /* lata.png */,
+				862EF0331A9AC73100AB9A07 /* misto_quente.png */,
+				862EF0341A9AC73100AB9A07 /* ovo_frito.png */,
+				862EF0351A9AC73100AB9A07 /* pao_queijo.png */,
+				862EF0361A9AC73100AB9A07 /* peixe.png */,
+				862EF0371A9AC73100AB9A07 /* pizza.png */,
+				862EF0381A9AC73100AB9A07 /* prato.png */,
+				862EF0391A9AC73100AB9A07 /* salada.png */,
+				862EF03A1A9AC73100AB9A07 /* salgados.png */,
+				862EF03B1A9AC73100AB9A07 /* salsicha.png */,
+				862EF03C1A9AC73100AB9A07 /* sanduiche.png */,
+				862EF03D1A9AC73100AB9A07 /* suco.png */,
+			);
+			path = iconList;
+			sourceTree = "<group>";
+		};
 		8680CB011A9131F100657539 /* imagens */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,11 +266,14 @@
 				8680CB041A9131F100657539 /* icon.png */,
 				865C5F231A93E3DF003E45BA /* semana.png */,
 				8680CB051A9131F100657539 /* icon@2x.png */,
+				86FFA1DA1A9A363300C1E793 /* bebidas.png */,
 				865C5F211A923252003E45BA /* imagemtoposuperiorlanche.png */,
 				865C5F271A93EA55003E45BA /* sugestao-selecionada.png */,
-				865C5F591A940309003E45BA /* bandeja.png */,
+				86FFA1E01A9A499800C1E793 /* copos.png */,
+				86FFA1DE1A9A489200C1E793 /* backgroundbebidas.png */,
 				865C5F251A93E5C0003E45BA /* sugestao.png */,
 				8680CB061A9131F100657539 /* imagemtoposuperior.png */,
+				86FFA1DC1A9A385F00C1E793 /* pedido.png */,
 				8680CB071A9131F100657539 /* info.png */,
 				8680CB081A9131F100657539 /* lanches.png */,
 				8680CB091A9131F100657539 /* refeicoes.png */,
@@ -248,24 +361,57 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				862EF05A1A9AC73100AB9A07 /* sanduiche.png in Resources */,
+				86FFA1DB1A9A363300C1E793 /* bebidas.png in Resources */,
+				862EF0421A9AC73100AB9A07 /* bolo.png in Resources */,
+				86FFA1DD1A9A385F00C1E793 /* pedido.png in Resources */,
+				862EF0481A9AC73100AB9A07 /* enrolado_salsicha.png in Resources */,
 				8680CB111A9131F100657539 /* refeicoes.png in Resources */,
+				862EF0551A9AC73100AB9A07 /* pizza.png in Resources */,
 				8680CB101A9131F100657539 /* lanches.png in Resources */,
+				862EF0591A9AC73100AB9A07 /* salsicha.png in Resources */,
+				862EF04F1A9AC73100AB9A07 /* humburguer.png in Resources */,
+				862EF0431A9AC73100AB9A07 /* calabresa.png in Resources */,
+				86FFA1DF1A9A489200C1E793 /* backgroundbebidas.png in Resources */,
+				862EF03E1A9AC73100AB9A07 /* arroz_branco.png in Resources */,
+				862EF0511A9AC73100AB9A07 /* misto_quente.png in Resources */,
+				862EF0521A9AC73100AB9A07 /* ovo_frito.png in Resources */,
+				862EF0581A9AC73100AB9A07 /* salgados.png in Resources */,
+				862EF0571A9AC73100AB9A07 /* salada.png in Resources */,
+				862EF0411A9AC73100AB9A07 /* bife.png in Resources */,
 				8680CB0D1A9131F100657539 /* icon@2x.png in Resources */,
 				860A40F91A90041000A5E6E7 /* Main.storyboard in Resources */,
 				8680CB0F1A9131F100657539 /* info.png in Resources */,
-				865C5F5A1A940309003E45BA /* bandeja.png in Resources */,
+				86FFA1E11A9A499800C1E793 /* copos.png in Resources */,
+				862EF04C1A9AC73100AB9A07 /* frango_molho.png in Resources */,
+				862EF05B1A9AC73100AB9A07 /* suco.png in Resources */,
 				8680CB0A1A9131F100657539 /* background.jpg in Resources */,
 				8680CB0C1A9131F100657539 /* icon.png in Resources */,
+				862EF0471A9AC73100AB9A07 /* doces.png in Resources */,
+				862EF04D1A9AC73100AB9A07 /* garrafa.png in Resources */,
 				865C5F281A93EA55003E45BA /* sugestao-selecionada.png in Resources */,
+				862EF0501A9AC73100AB9A07 /* lata.png in Resources */,
+				862EF0461A9AC73100AB9A07 /* croissant.png in Resources */,
+				862EF0401A9AC73100AB9A07 /* batata_frita.png in Resources */,
+				862EF04E1A9AC73100AB9A07 /* garrafa2l.png in Resources */,
 				865C5F221A923252003E45BA /* imagemtoposuperiorlanche.png in Resources */,
 				8680CB0E1A9131F100657539 /* imagemtoposuperior.png in Resources */,
+				862EF04A1A9AC73100AB9A07 /* file_frango.png in Resources */,
 				865C5F241A93E3DF003E45BA /* semana.png in Resources */,
 				865C5F261A93E5C0003E45BA /* sugestao.png in Resources */,
 				865C5F201A9231A2003E45BA /* backgroundlanches.jpg in Resources */,
 				8680CB0B1A9131F100657539 /* cupom.png in Resources */,
+				862EF03F1A9AC73100AB9A07 /* bandeja.png in Resources */,
+				862EF0531A9AC73100AB9A07 /* pao_queijo.png in Resources */,
+				862EF04B1A9AC73100AB9A07 /* frago_frito.png in Resources */,
+				862EF0441A9AC73100AB9A07 /* copos.png in Resources */,
+				862EF0451A9AC73100AB9A07 /* coxinha.png in Resources */,
 				8680CB131A91505800657539 /* cupomOriginal.png in Resources */,
+				862EF0491A9AC73100AB9A07 /* feijao.png in Resources */,
 				860A40FE1A90041000A5E6E7 /* LaunchScreen.xib in Resources */,
 				860A40FB1A90041000A5E6E7 /* Images.xcassets in Resources */,
+				862EF0561A9AC73100AB9A07 /* prato.png in Resources */,
+				862EF0541A9AC73100AB9A07 /* peixe.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,9 +429,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				860A40F61A90041000A5E6E7 /* SecondViewController.swift in Sources */,
+				860A40F61A90041000A5E6E7 /* LanchesViewController.swift in Sources */,
 				860A40F21A90041000A5E6E7 /* AppDelegate.swift in Sources */,
-				860A40F41A90041000A5E6E7 /* FirstViewController.swift in Sources */,
+				860A40F41A90041000A5E6E7 /* PratosViewController.swift in Sources */,
+				8644AEF11A9A5CE00084433A /* BebidasViewController.swift in Sources */,
+				860984901A9829D000D89C51 /* TabInitUITabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
