@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		860019F11A9EA7A400C8B374 /* CuponsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860019F01A9EA7A400C8B374 /* CuponsViewController.swift */; };
 		860984901A9829D000D89C51 /* TabInitUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8609848F1A9829D000D89C51 /* TabInitUITabBarController.swift */; };
 		860A40F21A90041000A5E6E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A40F11A90041000A5E6E7 /* AppDelegate.swift */; };
 		860A40F41A90041000A5E6E7 /* PratosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A40F31A90041000A5E6E7 /* PratosViewController.swift */; };
@@ -63,7 +64,6 @@
 		86FFA1DB1A9A363300C1E793 /* bebidas.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FFA1DA1A9A363300C1E793 /* bebidas.png */; };
 		86FFA1DD1A9A385F00C1E793 /* pedido.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FFA1DC1A9A385F00C1E793 /* pedido.png */; };
 		86FFA1DF1A9A489200C1E793 /* backgroundbebidas.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FFA1DE1A9A489200C1E793 /* backgroundbebidas.png */; };
-		86FFA1E11A9A499800C1E793 /* copos.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FFA1E01A9A499800C1E793 /* copos.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +77,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		860019F01A9EA7A400C8B374 /* CuponsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuponsViewController.swift; sourceTree = "<group>"; };
 		8609848F1A9829D000D89C51 /* TabInitUITabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabInitUITabBarController.swift; sourceTree = "<group>"; };
 		860A40EC1A90040F00A5E6E7 /* prototipoRestaurante.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = prototipoRestaurante.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		860A40F01A90040F00A5E6E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -137,7 +138,6 @@
 		86FFA1DA1A9A363300C1E793 /* bebidas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bebidas.png; sourceTree = "<group>"; };
 		86FFA1DC1A9A385F00C1E793 /* pedido.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pedido.png; sourceTree = "<group>"; };
 		86FFA1DE1A9A489200C1E793 /* backgroundbebidas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundbebidas.png; sourceTree = "<group>"; };
-		86FFA1E01A9A499800C1E793 /* copos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = copos.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +186,7 @@
 				860A40F31A90041000A5E6E7 /* PratosViewController.swift */,
 				860A40F51A90041000A5E6E7 /* LanchesViewController.swift */,
 				860A40F71A90041000A5E6E7 /* Main.storyboard */,
+				860019F01A9EA7A400C8B374 /* CuponsViewController.swift */,
 				8609848F1A9829D000D89C51 /* TabInitUITabBarController.swift */,
 				860A40FA1A90041000A5E6E7 /* Images.xcassets */,
 				860A40FC1A90041000A5E6E7 /* LaunchScreen.xib */,
@@ -269,7 +270,6 @@
 				86FFA1DA1A9A363300C1E793 /* bebidas.png */,
 				865C5F211A923252003E45BA /* imagemtoposuperiorlanche.png */,
 				865C5F271A93EA55003E45BA /* sugestao-selecionada.png */,
-				86FFA1E01A9A499800C1E793 /* copos.png */,
 				86FFA1DE1A9A489200C1E793 /* backgroundbebidas.png */,
 				865C5F251A93E5C0003E45BA /* sugestao.png */,
 				8680CB061A9131F100657539 /* imagemtoposuperior.png */,
@@ -382,7 +382,6 @@
 				8680CB0D1A9131F100657539 /* icon@2x.png in Resources */,
 				860A40F91A90041000A5E6E7 /* Main.storyboard in Resources */,
 				8680CB0F1A9131F100657539 /* info.png in Resources */,
-				86FFA1E11A9A499800C1E793 /* copos.png in Resources */,
 				862EF04C1A9AC73100AB9A07 /* frango_molho.png in Resources */,
 				862EF05B1A9AC73100AB9A07 /* suco.png in Resources */,
 				8680CB0A1A9131F100657539 /* background.jpg in Resources */,
@@ -431,6 +430,7 @@
 			files = (
 				860A40F61A90041000A5E6E7 /* LanchesViewController.swift in Sources */,
 				860A40F21A90041000A5E6E7 /* AppDelegate.swift in Sources */,
+				860019F11A9EA7A400C8B374 /* CuponsViewController.swift in Sources */,
 				860A40F41A90041000A5E6E7 /* PratosViewController.swift in Sources */,
 				8644AEF11A9A5CE00084433A /* BebidasViewController.swift in Sources */,
 				860984901A9829D000D89C51 /* TabInitUITabBarController.swift in Sources */,
