@@ -11,6 +11,10 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var arrayPratos : NSMutableArray = NSMutableArray()
+    
+    var pratoSelecionado : Int = Int()
+    
     var window: UIWindow?
         
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

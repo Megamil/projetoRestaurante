@@ -16,6 +16,8 @@
 		860A40FB1A90041000A5E6E7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 860A40FA1A90041000A5E6E7 /* Images.xcassets */; };
 		860A40FE1A90041000A5E6E7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 860A40FC1A90041000A5E6E7 /* LaunchScreen.xib */; };
 		860A410A1A90041000A5E6E7 /* prototipoRestauranteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A41091A90041000A5E6E7 /* prototipoRestauranteTests.swift */; };
+		86290F2C1AA3BB7700A07B3E /* ItensPratosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86290F2A1AA3BB7700A07B3E /* ItensPratosViewController.swift */; };
+		86290F2D1AA3BB7700A07B3E /* ItensPratosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86290F2B1AA3BB7700A07B3E /* ItensPratosViewController.xib */; };
 		862EF03E1A9AC73100AB9A07 /* arroz_branco.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0201A9AC73100AB9A07 /* arroz_branco.png */; };
 		862EF03F1A9AC73100AB9A07 /* bandeja.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0211A9AC73100AB9A07 /* bandeja.png */; };
 		862EF0401A9AC73100AB9A07 /* batata_frita.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0221A9AC73100AB9A07 /* batata_frita.png */; };
@@ -90,6 +92,8 @@
 		860A41031A90041000A5E6E7 /* prototipoRestauranteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = prototipoRestauranteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		860A41081A90041000A5E6E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		860A41091A90041000A5E6E7 /* prototipoRestauranteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prototipoRestauranteTests.swift; sourceTree = "<group>"; };
+		86290F2A1AA3BB7700A07B3E /* ItensPratosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItensPratosViewController.swift; sourceTree = "<group>"; };
+		86290F2B1AA3BB7700A07B3E /* ItensPratosViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItensPratosViewController.xib; sourceTree = "<group>"; };
 		862EF0201A9AC73100AB9A07 /* arroz_branco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arroz_branco.png; sourceTree = "<group>"; };
 		862EF0211A9AC73100AB9A07 /* bandeja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bandeja.png; sourceTree = "<group>"; };
 		862EF0221A9AC73100AB9A07 /* batata_frita.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = batata_frita.png; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 				860A40F11A90041000A5E6E7 /* AppDelegate.swift */,
 				8644AEF01A9A5CE00084433A /* BebidasViewController.swift */,
 				860A40F31A90041000A5E6E7 /* PratosViewController.swift */,
+				86290F2A1AA3BB7700A07B3E /* ItensPratosViewController.swift */,
+				86290F2B1AA3BB7700A07B3E /* ItensPratosViewController.xib */,
 				860A40F51A90041000A5E6E7 /* LanchesViewController.swift */,
 				860A40F71A90041000A5E6E7 /* Main.storyboard */,
 				860019F01A9EA7A400C8B374 /* CuponsViewController.swift */,
@@ -388,6 +394,7 @@
 				8680CB0C1A9131F100657539 /* icon.png in Resources */,
 				862EF0471A9AC73100AB9A07 /* doces.png in Resources */,
 				862EF04D1A9AC73100AB9A07 /* garrafa.png in Resources */,
+				86290F2D1AA3BB7700A07B3E /* ItensPratosViewController.xib in Resources */,
 				865C5F281A93EA55003E45BA /* sugestao-selecionada.png in Resources */,
 				862EF0501A9AC73100AB9A07 /* lata.png in Resources */,
 				862EF0461A9AC73100AB9A07 /* croissant.png in Resources */,
@@ -428,6 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86290F2C1AA3BB7700A07B3E /* ItensPratosViewController.swift in Sources */,
 				860A40F61A90041000A5E6E7 /* LanchesViewController.swift in Sources */,
 				860A40F21A90041000A5E6E7 /* AppDelegate.swift in Sources */,
 				860019F11A9EA7A400C8B374 /* CuponsViewController.swift in Sources */,

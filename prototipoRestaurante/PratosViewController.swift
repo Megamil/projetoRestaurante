@@ -9,8 +9,9 @@
 import UIKit
 
 class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    var arrayPratos : NSMutableArray = NSMutableArray()
+
+    var compartilhado = UIApplication.sharedApplication().delegate as AppDelegate
+    @IBOutlet var appsTableView : UITableView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +76,7 @@ class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
                 
                 var temparray : NSArray = NSArray(objects: titulo, descricao, img)
-                self.arrayPratos.addObject(temparray)
+                self.compartilhado.arrayPratos.addObject(temparray)
                 
             }
         }
@@ -93,7 +94,9 @@ class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayPratos.count
+        print(compartilhado.arrayPratos.count)
+        return compartilhado.arrayPratos.count
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -108,7 +111,7 @@ class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
         }
         
-        var objeto : NSArray = self.arrayPratos.objectAtIndex(indexPath.row) as NSArray
+        var objeto : NSArray = self.compartilhado.arrayPratos.objectAtIndex(indexPath.row) as NSArray
         
         celula?.textLabel?.text = objeto.objectAtIndex(0) as? String
         celula?.detailTextLabel?.text = objeto.objectAtIndex(1) as? String
@@ -120,6 +123,36 @@ class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDa
         celula?.imageView?.image = icone
         
         return celula!
+    }
+    
+    @IBAction func gerarNumero() {
+        
+        var numero = Int(arc4random_uniform(UInt32(compartilhado.arrayPratos.count)))
+        sorteio(numero)
+        
+    }
+    
+    func sorteio (numero: Int) {
+        
+        //Como o indexPath começa do Zero somei para acessar o banco de dados.
+        compartilhado.pratoSelecionado = Int(numero + 1) as Int
+        
+        var itens : ItensPratosViewController = ItensPratosViewController(nibName: "ItensPratosViewController", bundle: nil)
+        
+        self.presentViewController(itens, animated: true, completion: nil)
+        
+    }
+
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        //Como o indexPath começa do Zero somei para acessar o banco de dados.
+        compartilhado.pratoSelecionado = Int(indexPath.row + 1) as Int
+        
+        var itens : ItensPratosViewController = ItensPratosViewController(nibName: "ItensPratosViewController", bundle: nil)
+        
+        self.presentViewController(itens, animated: true, completion: nil)
+        
     }
     
     @IBAction func informacoes () {
