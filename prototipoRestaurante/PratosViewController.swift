@@ -9,14 +9,76 @@
 import UIKit
 
 class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    var jsonPratos : NSMutableData = NSMutableData()
     
     var arrayPratos : NSMutableArray = NSMutableArray()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let today = NSDate()
+        let formatter  = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let data = formatter.stringFromDate(today)
+        let stringData = formatter.dateFromString(data)
+        let myCalendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
+        let myComponents = myCalendar?.components(.WeekdayCalendarUnit, fromDate: stringData!)
+        var weekDay = myComponents?.weekday
+        
+        
+        let urlPath: String = "http://localhost:8888/MysqlJsonPratos.php?id=\(weekDay!.hashValue)"
+        var url: NSURL = NSURL(string: urlPath)!
+        var request1: NSURLRequest = NSURLRequest(URL: url)
+        var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
+        var error: NSErrorPointer = nil
+        var dataVal: NSData =  NSURLConnection.sendSynchronousRequest(request1, returningResponse: response, error:nil)!
+        var err: NSError
+        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+        
+        var resultados : NSArray = jsonResult["resultados"] as NSArray
+        
+        var i : Int = jsonResult["numResultados"] as Int
+        
+        if (i > 0) {
+            
+            for x in 0...i-1
+                
+            {
+                var resultado : NSDictionary = resultados[x] as NSDictionary
+                
+                var prato : String = resultado["nome_prato"] as String
+                var preço : Float = NSString(string: resultado["preco_prato"] as String).floatValue
+                
+                var acompanha : String = ""
+                var quantidade : Int = 0
+                var medida : String =  ""
+                
+                if resultado["bebida"] as NSString != ""{
+                    
+                    acompanha = resultado["bebida"] as String
+                    quantidade = NSString(string: resultado["quantidade"] as String).integerValue
+                    medida = resultado["medida"] as String
+                    
+                }
+                
+                //Formatando a string preço.
+                var preçoFormatado : String = NSString(format: "%.2f", preço) as String
+                
+                preçoFormatado = preçoFormatado.stringByReplacingOccurrencesOfString(".", withString: ",", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                
+                var titulo : String = "\(prato) - R$ \(preçoFormatado)"
+                var img : String = resultado["descricao_ilustracao"] as String
+                
+                var descricao : String = ""
+               
+                if quantidade != 0 {
+                    descricao = "Acompanha : \(acompanha) \(quantidade) \(medida)"
+                }
+                
+                var temparray : NSArray = NSArray(objects: titulo, descricao, img)
+                self.arrayPratos.addObject(temparray)
+                
+            }
+        }
     }
     
     override func supportedInterfaceOrientations() -> Int {
@@ -28,41 +90,7 @@ class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func connection(connection: NSURLConnection!, didFailWithError error: NSError!)
-    {
-        println("Falha na conexão: \(error.localizedDescription)")
-    }
-    
-    func connection(didReceiveResponse: NSURLConnection!, didReceiveResponse response: NSURLResponse!)
-    {
-        self.jsonPratos = NSMutableData()
-    }
-    
-    func connection(connection: NSURLConnection!, didReceiveData data: NSData!)
-    {
-        self.jsonPratos.appendData(data)
-    }
-    
-    func connectionDidFinishLoading(connection: NSURLConnection!)
-    {
-        var jsonData : NSDictionary = NSJSONSerialization.JSONObjectWithData(jsonPratos, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
-        
-        var i : Int = jsonData["numResultados"] as Int
-        
-        var resultados : NSArray = jsonData["resultados"] as NSArray
-        
-        if (i > 0) {
-            
-            for x in 0...i-1
-                
-            {
 
-            }
-            
-        }
-        
-    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayPratos.count

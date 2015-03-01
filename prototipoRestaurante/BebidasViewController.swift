@@ -17,7 +17,7 @@ class BebidasViewController: UIViewController, UITableViewDataSource, UITableVie
      override func viewDidLoad() {
         super.viewDidLoad()
 
-        let urlPath: String = "http://localhost:8888/bebidas.php"
+        let urlPath: String = "http://localhost:8888/MysqlJsonBebidas.php"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
@@ -39,14 +39,16 @@ class BebidasViewController: UIViewController, UITableViewDataSource, UITableVie
                 
                 var bebida : String = resultado["bebida"] as String
                 var preço : Float = NSString(string: resultado["preco_bebida"] as String).floatValue
+                var quantidade : Int = NSString(string: resultado["quantidade"] as String).integerValue
+                var medida : String = resultado["medida"] as String
                 
                 //Formatando a string preço.
                 var preçoFormatado : String = NSString(format: "%.2f", preço) as String
                 
                 preçoFormatado = preçoFormatado.stringByReplacingOccurrencesOfString(".", withString: ",", options: NSStringCompareOptions.LiteralSearch, range: nil)
                 
-                var titulo : String = "\(bebida) - R$ \(preçoFormatado)"
-                var descrição : String = resultado["tipo"] as String
+                var titulo : String = "\(bebida) - \(quantidade) \(medida) R$ \(preçoFormatado)"
+                var descrição : String = resultado["tipo_bebida"] as String
                 var img : String = resultado["descricao_ilustracao"] as String
                 var temparray : NSArray = NSArray(objects: titulo,descrição, img)
                 self.arrayBebidas.addObject(temparray)
@@ -98,6 +100,32 @@ class BebidasViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         var myObject : NSArray = self.arrayBebidas.objectAtIndex(indexPath.row) as NSArray
+        
+        let title : String = String(myObject.objectAtIndex(0) as String)
+        
+        let mensagem : String = String(myObject.objectAtIndex(1) as String)
+        
+        var detalhes : UIAlertView = UIAlertView()
+        detalhes.title = title
+        detalhes.message = mensagem
+        detalhes.addButtonWithTitle("OK")
+        detalhes.addButtonWithTitle("Pedir")
+        detalhes.show()
+        
+    }
+    
+
+    @IBAction func gerarNumero() {
+        
+        var numero = Int(arc4random_uniform(UInt32(arrayBebidas.count)))
+        sorteio(numero)
+        
+    }
+    
+    
+    func sorteio(aleatorio: Int)
+    {
+        var myObject : NSArray = self.arrayBebidas.objectAtIndex(aleatorio) as NSArray
         
         let title : String = String(myObject.objectAtIndex(0) as String)
         

@@ -15,7 +15,7 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let urlPath: String = "http://localhost:8888/json.php"
+        let urlPath: String = "http://localhost:8888/MysqlJsonLanches.php"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
@@ -37,7 +37,18 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
                 
                 var lanche : String = resultado["nome_lanche"] as String
                 var preço : Float = NSString(string: resultado["preco_lanche"] as String).floatValue
-                var acompanha : String = resultado["bebida"] as String
+
+                var acompanha : String = ""
+                var quantidade : Int = 0
+                var medida : String =  ""
+                
+                if resultado["bebida"] as NSString != ""{
+                    
+                    acompanha = resultado["bebida"] as String
+                    quantidade = NSString(string: resultado["quantidade"] as String).integerValue
+                    medida = resultado["medida"] as String
+                    
+                }
                 
                 //Formatando a string preço.
                 var preçoFormatado : String = NSString(format: "%.2f", preço) as String
@@ -45,7 +56,13 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
                 preçoFormatado = preçoFormatado.stringByReplacingOccurrencesOfString(".", withString: ",", options: NSStringCompareOptions.LiteralSearch, range: nil)
                 
                 var titulo : String = "\(lanche) - R$ \(preçoFormatado)"
-                var descricao : String = "Acompanha : \(acompanha)"
+                
+                var descricao : String = ""
+                
+                if quantidade != 0 {
+                    descricao = "Acompanha : \(acompanha) \(quantidade) \(medida)"
+                }
+                
                 var img : String = resultado["descricao_ilustracao"] as String
                 var temparray : NSArray = NSArray(objects: titulo, descricao, img)
                 self.arrayLanches.addObject(temparray)
@@ -108,6 +125,32 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
         detalhes.show()
         
     }
+    
+    @IBAction func gerarNumero() {
+        
+        var numero = Int(arc4random_uniform(UInt32(arrayLanches.count)))
+        sorteio(numero)
+        
+    }
+    
+    
+    func sorteio(aleatorio: Int)
+    {
+        var myObject : NSArray = self.arrayLanches.objectAtIndex(aleatorio) as NSArray
+        
+        let title : String = String(myObject.objectAtIndex(0) as String)
+        
+        let mensagem : String = String(myObject.objectAtIndex(1) as String)
+        
+        var detalhes : UIAlertView = UIAlertView()
+        detalhes.title = title
+        detalhes.message = mensagem
+        detalhes.addButtonWithTitle("OK")
+        detalhes.addButtonWithTitle("Pedir")
+        detalhes.show()
+        
+    }
+
     
     
 
