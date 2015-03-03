@@ -94,7 +94,6 @@ class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(compartilhado.arrayPratos.count)
         return compartilhado.arrayPratos.count
         
     }

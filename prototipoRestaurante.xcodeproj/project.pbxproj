@@ -12,12 +12,17 @@
 		860A40F21A90041000A5E6E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A40F11A90041000A5E6E7 /* AppDelegate.swift */; };
 		860A40F41A90041000A5E6E7 /* PratosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A40F31A90041000A5E6E7 /* PratosViewController.swift */; };
 		860A40F61A90041000A5E6E7 /* LanchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A40F51A90041000A5E6E7 /* LanchesViewController.swift */; };
-		860A40F91A90041000A5E6E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 860A40F71A90041000A5E6E7 /* Main.storyboard */; };
 		860A40FB1A90041000A5E6E7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 860A40FA1A90041000A5E6E7 /* Images.xcassets */; };
 		860A40FE1A90041000A5E6E7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 860A40FC1A90041000A5E6E7 /* LaunchScreen.xib */; };
 		860A410A1A90041000A5E6E7 /* prototipoRestauranteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860A41091A90041000A5E6E7 /* prototipoRestauranteTests.swift */; };
 		86290F2C1AA3BB7700A07B3E /* ItensPratosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86290F2A1AA3BB7700A07B3E /* ItensPratosViewController.swift */; };
 		86290F2D1AA3BB7700A07B3E /* ItensPratosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86290F2B1AA3BB7700A07B3E /* ItensPratosViewController.xib */; };
+		86290F411AA3FBCD00A07B3E /* prato_frango_assado.png in Resources */ = {isa = PBXBuildFile; fileRef = 86290F3B1AA3FBCD00A07B3E /* prato_frango_assado.png */; };
+		86290F421AA3FBCD00A07B3E /* prato_picadinho.png in Resources */ = {isa = PBXBuildFile; fileRef = 86290F3C1AA3FBCD00A07B3E /* prato_picadinho.png */; };
+		86290F431AA3FBCD00A07B3E /* prato_peixe.png in Resources */ = {isa = PBXBuildFile; fileRef = 86290F3D1AA3FBCD00A07B3E /* prato_peixe.png */; };
+		86290F441AA3FBCD00A07B3E /* prato_salsicha.png in Resources */ = {isa = PBXBuildFile; fileRef = 86290F3E1AA3FBCD00A07B3E /* prato_salsicha.png */; };
+		86290F451AA3FBCD00A07B3E /* prato_bife.png in Resources */ = {isa = PBXBuildFile; fileRef = 86290F3F1AA3FBCD00A07B3E /* prato_bife.png */; };
+		86290F471AA5404700A07B3E /* prato_frango_molho.png in Resources */ = {isa = PBXBuildFile; fileRef = 86290F461AA5404700A07B3E /* prato_frango_molho.png */; };
 		862EF03E1A9AC73100AB9A07 /* arroz_branco.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0201A9AC73100AB9A07 /* arroz_branco.png */; };
 		862EF03F1A9AC73100AB9A07 /* bandeja.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0211A9AC73100AB9A07 /* bandeja.png */; };
 		862EF0401A9AC73100AB9A07 /* batata_frita.png in Resources */ = {isa = PBXBuildFile; fileRef = 862EF0221A9AC73100AB9A07 /* batata_frita.png */; };
@@ -63,6 +68,7 @@
 		8680CB101A9131F100657539 /* lanches.png in Resources */ = {isa = PBXBuildFile; fileRef = 8680CB081A9131F100657539 /* lanches.png */; };
 		8680CB111A9131F100657539 /* refeicoes.png in Resources */ = {isa = PBXBuildFile; fileRef = 8680CB091A9131F100657539 /* refeicoes.png */; };
 		8680CB131A91505800657539 /* cupomOriginal.png in Resources */ = {isa = PBXBuildFile; fileRef = 8680CB121A91505800657539 /* cupomOriginal.png */; };
+		86DABAFD1AA544E000A10FC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 860A40F71A90041000A5E6E7 /* Main.storyboard */; };
 		86FFA1DB1A9A363300C1E793 /* bebidas.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FFA1DA1A9A363300C1E793 /* bebidas.png */; };
 		86FFA1DD1A9A385F00C1E793 /* pedido.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FFA1DC1A9A385F00C1E793 /* pedido.png */; };
 		86FFA1DF1A9A489200C1E793 /* backgroundbebidas.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FFA1DE1A9A489200C1E793 /* backgroundbebidas.png */; };
@@ -81,7 +87,7 @@
 /* Begin PBXFileReference section */
 		860019F01A9EA7A400C8B374 /* CuponsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuponsViewController.swift; sourceTree = "<group>"; };
 		8609848F1A9829D000D89C51 /* TabInitUITabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabInitUITabBarController.swift; sourceTree = "<group>"; };
-		860A40EC1A90040F00A5E6E7 /* prototipoRestaurante.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = prototipoRestaurante.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		860A40EC1A90040F00A5E6E7 /* prototipoRestaurante.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = prototipoRestaurante.app; path = "/Users/Megamil/Desktop/projetoRestaurante/build/Debug-iphoneos/prototipoRestaurante.app"; sourceTree = "<absolute>"; };
 		860A40F01A90040F00A5E6E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		860A40F11A90041000A5E6E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		860A40F31A90041000A5E6E7 /* PratosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratosViewController.swift; sourceTree = "<group>"; };
@@ -89,11 +95,17 @@
 		860A40F81A90041000A5E6E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		860A40FA1A90041000A5E6E7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		860A40FD1A90041000A5E6E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		860A41031A90041000A5E6E7 /* prototipoRestauranteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = prototipoRestauranteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		860A41031A90041000A5E6E7 /* prototipoRestauranteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = prototipoRestauranteTests.xctest; path = "/Users/Megamil/Desktop/projetoRestaurante/build/Debug-iphoneos/prototipoRestauranteTests.xctest"; sourceTree = "<absolute>"; };
 		860A41081A90041000A5E6E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		860A41091A90041000A5E6E7 /* prototipoRestauranteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prototipoRestauranteTests.swift; sourceTree = "<group>"; };
 		86290F2A1AA3BB7700A07B3E /* ItensPratosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItensPratosViewController.swift; sourceTree = "<group>"; };
 		86290F2B1AA3BB7700A07B3E /* ItensPratosViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItensPratosViewController.xib; sourceTree = "<group>"; };
+		86290F3B1AA3FBCD00A07B3E /* prato_frango_assado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prato_frango_assado.png; sourceTree = "<group>"; };
+		86290F3C1AA3FBCD00A07B3E /* prato_picadinho.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prato_picadinho.png; sourceTree = "<group>"; };
+		86290F3D1AA3FBCD00A07B3E /* prato_peixe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prato_peixe.png; sourceTree = "<group>"; };
+		86290F3E1AA3FBCD00A07B3E /* prato_salsicha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prato_salsicha.png; sourceTree = "<group>"; };
+		86290F3F1AA3FBCD00A07B3E /* prato_bife.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prato_bife.png; sourceTree = "<group>"; };
+		86290F461AA5404700A07B3E /* prato_frango_molho.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prato_frango_molho.png; sourceTree = "<group>"; };
 		862EF0201A9AC73100AB9A07 /* arroz_branco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arroz_branco.png; sourceTree = "<group>"; };
 		862EF0211A9AC73100AB9A07 /* bandeja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bandeja.png; sourceTree = "<group>"; };
 		862EF0221A9AC73100AB9A07 /* batata_frita.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = batata_frita.png; sourceTree = "<group>"; };
@@ -167,17 +179,7 @@
 			children = (
 				860A40EE1A90040F00A5E6E7 /* prototipoRestaurante */,
 				860A41061A90041000A5E6E7 /* prototipoRestauranteTests */,
-				860A40ED1A90040F00A5E6E7 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		860A40ED1A90040F00A5E6E7 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				860A40EC1A90040F00A5E6E7 /* prototipoRestaurante.app */,
-				860A41031A90041000A5E6E7 /* prototipoRestauranteTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		860A40EE1A90040F00A5E6E7 /* prototipoRestaurante */ = {
@@ -243,6 +245,7 @@
 				862EF02B1A9AC73100AB9A07 /* feijao.png */,
 				862EF02C1A9AC73100AB9A07 /* file_frango.png */,
 				862EF02D1A9AC73100AB9A07 /* frago_frito.png */,
+				86290F461AA5404700A07B3E /* prato_frango_molho.png */,
 				862EF02E1A9AC73100AB9A07 /* frango_molho.png */,
 				862EF02F1A9AC73100AB9A07 /* garrafa.png */,
 				862EF0301A9AC73100AB9A07 /* garrafa2l.png */,
@@ -253,6 +256,11 @@
 				862EF0351A9AC73100AB9A07 /* pao_queijo.png */,
 				862EF0361A9AC73100AB9A07 /* peixe.png */,
 				862EF0371A9AC73100AB9A07 /* pizza.png */,
+				86290F3B1AA3FBCD00A07B3E /* prato_frango_assado.png */,
+				86290F3C1AA3FBCD00A07B3E /* prato_picadinho.png */,
+				86290F3D1AA3FBCD00A07B3E /* prato_peixe.png */,
+				86290F3E1AA3FBCD00A07B3E /* prato_salsicha.png */,
+				86290F3F1AA3FBCD00A07B3E /* prato_bife.png */,
 				862EF0381A9AC73100AB9A07 /* prato.png */,
 				862EF0391A9AC73100AB9A07 /* salada.png */,
 				862EF03A1A9AC73100AB9A07 /* salgados.png */,
@@ -352,7 +360,7 @@
 				Base,
 			);
 			mainGroup = 860A40E31A90040F00A5E6E7;
-			productRefGroup = 860A40ED1A90040F00A5E6E7 /* Products */;
+			productRefGroup = 860A40E31A90040F00A5E6E7;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -368,6 +376,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				862EF05A1A9AC73100AB9A07 /* sanduiche.png in Resources */,
+				86290F421AA3FBCD00A07B3E /* prato_picadinho.png in Resources */,
 				86FFA1DB1A9A363300C1E793 /* bebidas.png in Resources */,
 				862EF0421A9AC73100AB9A07 /* bolo.png in Resources */,
 				86FFA1DD1A9A385F00C1E793 /* pedido.png in Resources */,
@@ -376,6 +385,7 @@
 				862EF0551A9AC73100AB9A07 /* pizza.png in Resources */,
 				8680CB101A9131F100657539 /* lanches.png in Resources */,
 				862EF0591A9AC73100AB9A07 /* salsicha.png in Resources */,
+				86290F441AA3FBCD00A07B3E /* prato_salsicha.png in Resources */,
 				862EF04F1A9AC73100AB9A07 /* humburguer.png in Resources */,
 				862EF0431A9AC73100AB9A07 /* calabresa.png in Resources */,
 				86FFA1DF1A9A489200C1E793 /* backgroundbebidas.png in Resources */,
@@ -384,9 +394,10 @@
 				862EF0521A9AC73100AB9A07 /* ovo_frito.png in Resources */,
 				862EF0581A9AC73100AB9A07 /* salgados.png in Resources */,
 				862EF0571A9AC73100AB9A07 /* salada.png in Resources */,
+				86290F471AA5404700A07B3E /* prato_frango_molho.png in Resources */,
 				862EF0411A9AC73100AB9A07 /* bife.png in Resources */,
 				8680CB0D1A9131F100657539 /* icon@2x.png in Resources */,
-				860A40F91A90041000A5E6E7 /* Main.storyboard in Resources */,
+				86290F451AA3FBCD00A07B3E /* prato_bife.png in Resources */,
 				8680CB0F1A9131F100657539 /* info.png in Resources */,
 				862EF04C1A9AC73100AB9A07 /* frango_molho.png in Resources */,
 				862EF05B1A9AC73100AB9A07 /* suco.png in Resources */,
@@ -400,12 +411,14 @@
 				862EF0461A9AC73100AB9A07 /* croissant.png in Resources */,
 				862EF0401A9AC73100AB9A07 /* batata_frita.png in Resources */,
 				862EF04E1A9AC73100AB9A07 /* garrafa2l.png in Resources */,
+				86DABAFD1AA544E000A10FC2 /* Main.storyboard in Resources */,
 				865C5F221A923252003E45BA /* imagemtoposuperiorlanche.png in Resources */,
 				8680CB0E1A9131F100657539 /* imagemtoposuperior.png in Resources */,
 				862EF04A1A9AC73100AB9A07 /* file_frango.png in Resources */,
 				865C5F241A93E3DF003E45BA /* semana.png in Resources */,
 				865C5F261A93E5C0003E45BA /* sugestao.png in Resources */,
 				865C5F201A9231A2003E45BA /* backgroundlanches.jpg in Resources */,
+				86290F431AA3FBCD00A07B3E /* prato_peixe.png in Resources */,
 				8680CB0B1A9131F100657539 /* cupom.png in Resources */,
 				862EF03F1A9AC73100AB9A07 /* bandeja.png in Resources */,
 				862EF0531A9AC73100AB9A07 /* pao_queijo.png in Resources */,
@@ -415,6 +428,7 @@
 				8680CB131A91505800657539 /* cupomOriginal.png in Resources */,
 				862EF0491A9AC73100AB9A07 /* feijao.png in Resources */,
 				860A40FE1A90041000A5E6E7 /* LaunchScreen.xib in Resources */,
+				86290F411AA3FBCD00A07B3E /* prato_frango_assado.png in Resources */,
 				860A40FB1A90041000A5E6E7 /* Images.xcassets in Resources */,
 				862EF0561A9AC73100AB9A07 /* prato.png in Resources */,
 				862EF0541A9AC73100AB9A07 /* peixe.png in Resources */,
