@@ -14,6 +14,7 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
     
     var objeto : NSArray = NSArray()
     
+    @IBOutlet weak var pedir: UIButton!
     @IBOutlet weak var titulo: UILabel!
     @IBOutlet weak var descricao: UILabel!
     @IBOutlet weak var imagemSuperior: UIImageView!
@@ -22,6 +23,10 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if compartilhado.boolPedir == false {
+            pedir.setTitle("INFORMAÇÕES",  forState: UIControlState.Normal)
+        }
 
         objeto = self.compartilhado.arrayPratos.objectAtIndex(compartilhado.indicePrato) as NSArray
         
@@ -104,7 +109,11 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
         detalhes.title = title
         detalhes.message = mensagem
         detalhes.addButtonWithTitle("OK")
-        detalhes.addButtonWithTitle("Pedir")
+        if compartilhado.boolPedir == true {
+            
+            detalhes.addButtonWithTitle("Pedir")
+        
+        }
         
         detalhes.show()
         
@@ -132,6 +141,8 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
     @IBAction func sair() {
         
         compartilhado.arrayPratos.removeAllObjects()
+        
+        compartilhado.boolPedir = true
         
         var reload : PratosViewController = PratosViewController(nibName: "PratosViewController", bundle: nil)
         reload.viewDidLoad()

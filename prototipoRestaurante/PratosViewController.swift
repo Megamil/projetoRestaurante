@@ -131,36 +131,72 @@ class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let segunda = UIAlertAction(title: "Segunda-Feira", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
+            self.compartilhado.dia = 2
+            self.compartilhado.tituloDia = "Segunda-Feira"
+            
+            var itens : semanaPratoViewController = semanaPratoViewController(nibName: "semanaPratoViewController", bundle: nil)
+            
+            self.presentViewController(itens, animated: true, completion: nil)
             
         })
         let terça = UIAlertAction(title: "Terça-Feira", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-
+            self.compartilhado.dia = 3
+            self.compartilhado.tituloDia = "Terça-Feira"
+            
+            var itens : semanaPratoViewController = semanaPratoViewController(nibName: "semanaPratoViewController", bundle: nil)
+            
+            self.presentViewController(itens, animated: true, completion: nil)
         })
         
         let quarta = UIAlertAction(title: "Quarta-Feira", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-
+            self.compartilhado.dia = 4
+            self.compartilhado.tituloDia = "Quarta-Feira"
+            
+            var itens : semanaPratoViewController = semanaPratoViewController(nibName: "semanaPratoViewController", bundle: nil)
+            
+            self.presentViewController(itens, animated: true, completion: nil)
         })
         
         let quinta = UIAlertAction(title: "Quinta-Feira", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
+            self.compartilhado.dia = 5
+            self.compartilhado.tituloDia = "Quinta-Feira"
             
+            var itens : semanaPratoViewController = semanaPratoViewController(nibName: "semanaPratoViewController", bundle: nil)
+            
+            self.presentViewController(itens, animated: true, completion: nil)
         })
         
         let sexta = UIAlertAction(title: "Sexta-Feira", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
+            self.compartilhado.dia = 6
+            self.compartilhado.tituloDia = "Sexta-Feira"
             
+            var itens : semanaPratoViewController = semanaPratoViewController(nibName: "semanaPratoViewController", bundle: nil)
+            
+            self.presentViewController(itens, animated: true, completion: nil)
         })
         
         let sabado = UIAlertAction(title: "Sábado", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
+            self.compartilhado.dia = 7
+            self.compartilhado.tituloDia =  "Sábado"
             
+            var itens : semanaPratoViewController = semanaPratoViewController(nibName: "semanaPratoViewController", bundle: nil)
+            
+            self.presentViewController(itens, animated: true, completion: nil)
         })
         
         let domingo = UIAlertAction(title: "Domingo", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
+            self.compartilhado.dia = 1
+            self.compartilhado.tituloDia = "Domingo"
             
+            var itens : semanaPratoViewController = semanaPratoViewController(nibName: "semanaPratoViewController", bundle: nil)
+            
+            self.presentViewController(itens, animated: true, completion: nil)
         })
         
         let cancelar = UIAlertAction(title: "Voltar", style: .Cancel, handler: {

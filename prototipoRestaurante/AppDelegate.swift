@@ -17,9 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var indicePrato : Int = Int()
     
+    var dia : Int = Int()
+    
+    var tituloDia : String = String()
+    
     var pratoSelecionado : Int = Int()
     
     var window: UIWindow?
+    
+    var boolPedir : Bool = true
         
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.

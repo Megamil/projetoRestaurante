@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="descricao" destination="9WM-U7-JOt" id="37q-dd-lBO"/>
                 <outlet property="imagemSuperior" destination="wzA-Ql-O8x" id="OZf-pZ-a6E"/>
+                <outlet property="pedir" destination="Vjb-D9-De3" id="TfR-Ff-FFh"/>
                 <outlet property="titulo" destination="RcT-Oc-bnT" id="EFY-wt-cXP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="acz-AG-nhq"/>
             </connections>
