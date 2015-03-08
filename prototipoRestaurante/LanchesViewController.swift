@@ -10,7 +10,11 @@ import UIKit
 
 class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var compartilhado = UIApplication.sharedApplication().delegate as AppDelegate
+    
     var arrayLanches : NSMutableArray = NSMutableArray()
+    
+    var myObject : NSArray = NSArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,20 +115,37 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        var myObject : NSArray = self.arrayLanches.objectAtIndex(indexPath.row) as NSArray
+        myObject = self.arrayLanches.objectAtIndex(indexPath.row) as NSArray
         
         let title : String = String(myObject.objectAtIndex(0) as String)
         
         let mensagem : String = String(myObject.objectAtIndex(1) as String)
         
         var detalhes : UIAlertView = UIAlertView()
+        detalhes.delegate = self
         detalhes.title = title
         detalhes.message = mensagem
         detalhes.addButtonWithTitle("OK")
         detalhes.addButtonWithTitle("Pedir")
-        detalhes.show()
         
+        detalhes.show()
+
     }
+    
+        func alertView(View: UIAlertView!, clickedButtonAtIndex buttonIndex: Int){
+            
+            switch buttonIndex{
+                
+            case 1:
+                compartilhado.arrayPedidos.addObject(myObject)
+                break
+            default:
+                break
+                
+            }
+        }
+    
+
     
     @IBAction func gerarNumero() {
         
@@ -136,13 +157,14 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func sorteio(aleatorio: Int)
     {
-        var myObject : NSArray = self.arrayLanches.objectAtIndex(aleatorio) as NSArray
+        myObject = self.arrayLanches.objectAtIndex(aleatorio) as NSArray
         
         let title : String = String(myObject.objectAtIndex(0) as String)
         
         let mensagem : String = String(myObject.objectAtIndex(1) as String)
         
         var detalhes : UIAlertView = UIAlertView()
+        detalhes.delegate = self
         detalhes.title = title
         detalhes.message = mensagem
         detalhes.addButtonWithTitle("OK")

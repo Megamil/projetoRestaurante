@@ -10,6 +10,8 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var arrayPedidos : NSMutableArray = NSMutableArray()
 
     var arrayPratos : NSMutableArray = NSMutableArray()
     

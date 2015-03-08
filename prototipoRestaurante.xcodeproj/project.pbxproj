@@ -69,6 +69,7 @@
 		8680CB111A9131F100657539 /* refeicoes.png in Resources */ = {isa = PBXBuildFile; fileRef = 8680CB091A9131F100657539 /* refeicoes.png */; };
 		8680CB131A91505800657539 /* cupomOriginal.png in Resources */ = {isa = PBXBuildFile; fileRef = 8680CB121A91505800657539 /* cupomOriginal.png */; };
 		86DABAFD1AA544E000A10FC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 860A40F71A90041000A5E6E7 /* Main.storyboard */; };
+		86DABB011AA7DC6A00A10FC2 /* PedidoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DABB001AA7DC6A00A10FC2 /* PedidoViewController.swift */; };
 		86FFA1DB1A9A363300C1E793 /* bebidas.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FFA1DA1A9A363300C1E793 /* bebidas.png */; };
 		86FFA1DD1A9A385F00C1E793 /* pedido.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FFA1DC1A9A385F00C1E793 /* pedido.png */; };
 		86FFA1DF1A9A489200C1E793 /* backgroundbebidas.png in Resources */ = {isa = PBXBuildFile; fileRef = 86FFA1DE1A9A489200C1E793 /* backgroundbebidas.png */; };
@@ -87,7 +88,6 @@
 /* Begin PBXFileReference section */
 		860019F01A9EA7A400C8B374 /* CuponsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuponsViewController.swift; sourceTree = "<group>"; };
 		8609848F1A9829D000D89C51 /* TabInitUITabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabInitUITabBarController.swift; sourceTree = "<group>"; };
-		860A40EC1A90040F00A5E6E7 /* prototipoRestaurante.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = prototipoRestaurante.app; path = "/Users/Megamil/Desktop/projetoRestaurante/build/Debug-iphoneos/prototipoRestaurante.app"; sourceTree = "<absolute>"; };
 		860A40F01A90040F00A5E6E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		860A40F11A90041000A5E6E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		860A40F31A90041000A5E6E7 /* PratosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PratosViewController.swift; sourceTree = "<group>"; };
@@ -95,7 +95,6 @@
 		860A40F81A90041000A5E6E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		860A40FA1A90041000A5E6E7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		860A40FD1A90041000A5E6E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		860A41031A90041000A5E6E7 /* prototipoRestauranteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = prototipoRestauranteTests.xctest; path = "/Users/Megamil/Desktop/projetoRestaurante/build/Debug-iphoneos/prototipoRestauranteTests.xctest"; sourceTree = "<absolute>"; };
 		860A41081A90041000A5E6E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		860A41091A90041000A5E6E7 /* prototipoRestauranteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prototipoRestauranteTests.swift; sourceTree = "<group>"; };
 		86290F2A1AA3BB7700A07B3E /* ItensPratosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItensPratosViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +150,9 @@
 		8680CB081A9131F100657539 /* lanches.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lanches.png; sourceTree = "<group>"; };
 		8680CB091A9131F100657539 /* refeicoes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refeicoes.png; sourceTree = "<group>"; };
 		8680CB121A91505800657539 /* cupomOriginal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cupomOriginal.png; sourceTree = "<group>"; };
+		86DABAFE1AA7CFDA00A10FC2 /* prototipoRestaurante.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = prototipoRestaurante.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		86DABAFF1AA7CFDA00A10FC2 /* prototipoRestauranteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = prototipoRestauranteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		86DABB001AA7DC6A00A10FC2 /* PedidoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedidoViewController.swift; sourceTree = "<group>"; };
 		86FFA1DA1A9A363300C1E793 /* bebidas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bebidas.png; sourceTree = "<group>"; };
 		86FFA1DC1A9A385F00C1E793 /* pedido.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pedido.png; sourceTree = "<group>"; };
 		86FFA1DE1A9A489200C1E793 /* backgroundbebidas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundbebidas.png; sourceTree = "<group>"; };
@@ -179,6 +181,8 @@
 			children = (
 				860A40EE1A90040F00A5E6E7 /* prototipoRestaurante */,
 				860A41061A90041000A5E6E7 /* prototipoRestauranteTests */,
+				86DABAFE1AA7CFDA00A10FC2 /* prototipoRestaurante.app */,
+				86DABAFF1AA7CFDA00A10FC2 /* prototipoRestauranteTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -193,6 +197,7 @@
 				86290F2A1AA3BB7700A07B3E /* ItensPratosViewController.swift */,
 				86290F2B1AA3BB7700A07B3E /* ItensPratosViewController.xib */,
 				860A40F51A90041000A5E6E7 /* LanchesViewController.swift */,
+				86DABB001AA7DC6A00A10FC2 /* PedidoViewController.swift */,
 				860A40F71A90041000A5E6E7 /* Main.storyboard */,
 				860019F01A9EA7A400C8B374 /* CuponsViewController.swift */,
 				8609848F1A9829D000D89C51 /* TabInitUITabBarController.swift */,
@@ -312,7 +317,7 @@
 			);
 			name = prototipoRestaurante;
 			productName = prototipoRestaurante;
-			productReference = 860A40EC1A90040F00A5E6E7 /* prototipoRestaurante.app */;
+			productReference = 86DABAFE1AA7CFDA00A10FC2 /* prototipoRestaurante.app */;
 			productType = "com.apple.product-type.application";
 		};
 		860A41021A90041000A5E6E7 /* prototipoRestauranteTests */ = {
@@ -330,7 +335,7 @@
 			);
 			name = prototipoRestauranteTests;
 			productName = prototipoRestauranteTests;
-			productReference = 860A41031A90041000A5E6E7 /* prototipoRestauranteTests.xctest */;
+			productReference = 86DABAFF1AA7CFDA00A10FC2 /* prototipoRestauranteTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -450,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86290F2C1AA3BB7700A07B3E /* ItensPratosViewController.swift in Sources */,
+				86DABB011AA7DC6A00A10FC2 /* PedidoViewController.swift in Sources */,
 				860A40F61A90041000A5E6E7 /* LanchesViewController.swift in Sources */,
 				860A40F21A90041000A5E6E7 /* AppDelegate.swift in Sources */,
 				860019F11A9EA7A400C8B374 /* CuponsViewController.swift in Sources */,

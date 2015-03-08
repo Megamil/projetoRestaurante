@@ -10,6 +10,10 @@ import UIKit
 
 class BebidasViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    var compartilhado = UIApplication.sharedApplication().delegate as AppDelegate
+    
+    var myObject : NSArray = NSArray()
+    
     var arrayBebidas : NSMutableArray = NSMutableArray()
     
     var celula : UITableViewCell?
@@ -99,19 +103,33 @@ class BebidasViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        var myObject : NSArray = self.arrayBebidas.objectAtIndex(indexPath.row) as NSArray
+        myObject = self.arrayBebidas.objectAtIndex(indexPath.row) as NSArray
         
         let title : String = String(myObject.objectAtIndex(0) as String)
         
         let mensagem : String = String(myObject.objectAtIndex(1) as String)
         
         var detalhes : UIAlertView = UIAlertView()
+        detalhes.delegate = self
         detalhes.title = title
         detalhes.message = mensagem
         detalhes.addButtonWithTitle("OK")
         detalhes.addButtonWithTitle("Pedir")
         detalhes.show()
         
+    }
+    
+    func alertView(View: UIAlertView!, clickedButtonAtIndex buttonIndex: Int){
+        
+        switch buttonIndex{
+            
+        case 1:
+            compartilhado.arrayPedidos.addObject(myObject)
+            break
+        default:
+            break
+            
+        }
     }
     
 
@@ -125,13 +143,14 @@ class BebidasViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func sorteio(aleatorio: Int)
     {
-        var myObject : NSArray = self.arrayBebidas.objectAtIndex(aleatorio) as NSArray
+        myObject = self.arrayBebidas.objectAtIndex(aleatorio) as NSArray
         
         let title : String = String(myObject.objectAtIndex(0) as String)
         
         let mensagem : String = String(myObject.objectAtIndex(1) as String)
         
         var detalhes : UIAlertView = UIAlertView()
+        detalhes.delegate = self
         detalhes.title = title
         detalhes.message = mensagem
         detalhes.addButtonWithTitle("OK")

@@ -9,7 +9,7 @@
         <!--Pedidos-->
         <scene sceneID="1ys-W4-nRh">
             <objects>
-                <viewController title="Pedidos" id="UaD-XV-xTb" sceneMemberID="viewController">
+                <viewController title="Pedidos" id="UaD-XV-xTb" customClass="PedidoViewController" customModule="prototipoRestaurante" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aQ1-7P-6jr"/>
                         <viewControllerLayoutGuide type="bottom" id="IjN-8J-yrG"/>
@@ -17,9 +17,148 @@
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="pedido" id="46R-wA-0Xg">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="pedidos" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2br-9g-CQV">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="Hde-Bm-csd"/>
+                                    <constraint firstAttribute="height" constant="613" id="JtJ-yE-8Vq"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pedido" id="iyK-h1-Lgv">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iyK-h1-Lgv" id="FYM-xo-5XD">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Hde-Bm-csd"/>
+                                        <exclude reference="JtJ-yE-8Vq"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Hde-Bm-csd"/>
+                                        <include reference="JtJ-yE-8Vq"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="UaD-XV-xTb" id="61l-c8-FL6"/>
+                                    <outlet property="delegate" destination="UaD-XV-xTb" id="Gvp-a5-iAG"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCs-5X-QVY">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="NhB-7E-L40">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="50"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="192" id="ojN-0t-8MM"/>
+                                </constraints>
+                                <state key="normal" title="CANCELAR PEDIDO">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="NhB-7E-L40"/>
+                                        <exclude reference="ojN-0t-8MM"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="NhB-7E-L40"/>
+                                        <include reference="ojN-0t-8MM"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="zerar:" destination="UaD-XV-xTb" eventType="touchUpInside" id="mke-RX-4XP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DOS-iN-Yzk">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.12941176470588237" green="0.76078431372549016" blue="0.015686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ElI-X4-ntQ">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="50"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="200" id="yUW-ky-QuO">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="208"/>
+                                    </constraint>
+                                </constraints>
+                                <state key="normal" title="PEDIR">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ElI-X4-ntQ"/>
+                                        <exclude reference="yUW-ky-QuO"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="ElI-X4-ntQ"/>
+                                        <include reference="yUW-ky-QuO"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2br-9g-CQV" firstAttribute="leading" secondItem="DOS-iN-Yzk" secondAttribute="leading" id="FmD-jh-DnL"/>
+                            <constraint firstItem="2br-9g-CQV" firstAttribute="top" secondItem="DOS-iN-Yzk" secondAttribute="bottom" constant="8" symbolic="YES" id="Nv7-3T-Wv9"/>
+                            <constraint firstAttribute="centerX" secondItem="DOS-iN-Yzk" secondAttribute="centerX" constant="100" id="P57-Vn-uAi">
+                                <variation key="heightClass=regular-widthClass=compact" constant="96"/>
+                            </constraint>
+                            <constraint firstItem="YCs-5X-QVY" firstAttribute="top" secondItem="aQ1-7P-6jr" secondAttribute="bottom" constant="149" id="Qhm-K8-3lI">
+                                <variation key="heightClass=regular-widthClass=compact" constant="129"/>
+                            </constraint>
+                            <constraint firstItem="DOS-iN-Yzk" firstAttribute="top" secondItem="aQ1-7P-6jr" secondAttribute="bottom" constant="149" id="Ws5-sh-gFF">
+                                <variation key="heightClass=regular-widthClass=compact" constant="129"/>
+                            </constraint>
+                            <constraint firstAttribute="centerX" secondItem="YCs-5X-QVY" secondAttribute="centerX" constant="-104" id="dT0-iP-icz"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="2br-9g-CQV"/>
+                                <exclude reference="YCs-5X-QVY"/>
+                                <exclude reference="DOS-iN-Yzk"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="P57-Vn-uAi"/>
+                                <exclude reference="Ws5-sh-gFF"/>
+                                <exclude reference="FmD-jh-DnL"/>
+                                <exclude reference="Nv7-3T-Wv9"/>
+                                <exclude reference="Qhm-K8-3lI"/>
+                                <exclude reference="dT0-iP-icz"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="2br-9g-CQV"/>
+                                <include reference="YCs-5X-QVY"/>
+                                <include reference="DOS-iN-Yzk"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="P57-Vn-uAi"/>
+                                <include reference="Ws5-sh-gFF"/>
+                                <include reference="FmD-jh-DnL"/>
+                                <include reference="Nv7-3T-Wv9"/>
+                                <include reference="Qhm-K8-3lI"/>
+                                <include reference="dT0-iP-icz"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Pedidos" image="pedido.png" id="2UA-qX-nn3"/>
+                    <connections>
+                        <outlet property="appsTableView" destination="2br-9g-CQV" id="rMg-MH-W3z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YU5-wC-sg8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

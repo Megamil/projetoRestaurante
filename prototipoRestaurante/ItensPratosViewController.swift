@@ -12,6 +12,8 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
     
     var arrayItens : NSMutableArray = NSMutableArray()
     
+    var objeto : NSArray = NSArray()
+    
     @IBOutlet weak var titulo: UILabel!
     @IBOutlet weak var descricao: UILabel!
     @IBOutlet weak var imagemSuperior: UIImageView!
@@ -22,7 +24,7 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
 
         //Retirado o valor que foi adicionado para trazer os itens.
-        var objeto : NSArray = self.compartilhado.arrayPratos.objectAtIndex(compartilhado.pratoSelecionado - 1) as NSArray
+        objeto = self.compartilhado.arrayPratos.objectAtIndex(compartilhado.pratoSelecionado - 1) as NSArray
         
         titulo?.text = objeto.objectAtIndex(0) as? String
         descricao?.text = objeto.objectAtIndex(1) as? String
@@ -90,7 +92,38 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
         
         return celula!
     }
+    
+    
+    @IBAction func pedir(sender: AnyObject) {
+        
+        let title : String = String(objeto.objectAtIndex(0) as String)
+        
+        let mensagem : String = String(objeto.objectAtIndex(1) as String)
+        
+        var detalhes : UIAlertView = UIAlertView()
+        detalhes.delegate = self
+        detalhes.title = title
+        detalhes.message = mensagem
+        detalhes.addButtonWithTitle("OK")
+        detalhes.addButtonWithTitle("Pedir")
+        
+        detalhes.show()
+        
+        
+    }
 
+    func alertView(View: UIAlertView!, clickedButtonAtIndex buttonIndex: Int){
+        
+        switch buttonIndex{
+            
+        case 1:
+            compartilhado.arrayPedidos.addObject(objeto)
+            break
+        default:
+            break
+            
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

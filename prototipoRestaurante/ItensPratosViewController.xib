@@ -140,6 +140,9 @@
                             <include reference="9pc-2r-z8v"/>
                         </mask>
                     </variation>
+                    <connections>
+                        <action selector="pedir:" destination="-1" eventType="touchUpInside" id="Pko-lc-yHi"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="9WM-U7-JOt">
                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
