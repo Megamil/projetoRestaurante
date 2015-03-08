@@ -10,6 +10,8 @@ import UIKit
 
 class PedidoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     var compartilhado = UIApplication.sharedApplication().delegate as AppDelegate
     
     @IBOutlet var appsTableView : UITableView?
@@ -76,6 +78,7 @@ class PedidoViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case 1:
             compartilhado.arrayPedidos.removeAllObjects()
             self.dismissViewControllerAnimated(true, completion: nil)
+            tableView.reloadData()
             break
         default:
             break

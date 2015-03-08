@@ -133,10 +133,10 @@
                             <mask key="constraints">
                                 <exclude reference="P57-Vn-uAi"/>
                                 <exclude reference="Ws5-sh-gFF"/>
-                                <exclude reference="FmD-jh-DnL"/>
-                                <exclude reference="Nv7-3T-Wv9"/>
                                 <exclude reference="Qhm-K8-3lI"/>
                                 <exclude reference="dT0-iP-icz"/>
+                                <exclude reference="FmD-jh-DnL"/>
+                                <exclude reference="Nv7-3T-Wv9"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -148,16 +148,17 @@
                             <mask key="constraints">
                                 <include reference="P57-Vn-uAi"/>
                                 <include reference="Ws5-sh-gFF"/>
-                                <include reference="FmD-jh-DnL"/>
-                                <include reference="Nv7-3T-Wv9"/>
                                 <include reference="Qhm-K8-3lI"/>
                                 <include reference="dT0-iP-icz"/>
+                                <include reference="FmD-jh-DnL"/>
+                                <include reference="Nv7-3T-Wv9"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Pedidos" image="pedido.png" id="2UA-qX-nn3"/>
                     <connections>
                         <outlet property="appsTableView" destination="2br-9g-CQV" id="rMg-MH-W3z"/>
+                        <outlet property="tableView" destination="2br-9g-CQV" id="noz-mt-Ato"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YU5-wC-sg8" userLabel="First Responder" sceneMemberID="firstResponder"/>
