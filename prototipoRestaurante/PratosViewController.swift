@@ -125,6 +125,61 @@ class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return celula!
     }
     
+    @IBAction func showActionSheet(sender: AnyObject) {
+
+        let optionMenu = UIAlertController(title: nil, message: "Selecione um dia da Semana.", preferredStyle: .ActionSheet)
+        
+        let segunda = UIAlertAction(title: "Segunda-Feira", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            
+        })
+        let terça = UIAlertAction(title: "Terça-Feira", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+
+        })
+        
+        let quarta = UIAlertAction(title: "Quarta-Feira", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+
+        })
+        
+        let quinta = UIAlertAction(title: "Quinta-Feira", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            
+        })
+        
+        let sexta = UIAlertAction(title: "Sexta-Feira", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            
+        })
+        
+        let sabado = UIAlertAction(title: "Sábado", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            
+        })
+        
+        let domingo = UIAlertAction(title: "Domingo", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            
+        })
+        
+        let cancelar = UIAlertAction(title: "Voltar", style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            
+        })
+        
+        optionMenu.addAction(domingo)
+        optionMenu.addAction(segunda)
+        optionMenu.addAction(terça)
+        optionMenu.addAction(quarta)
+        optionMenu.addAction(quinta)
+        optionMenu.addAction(sexta)
+        optionMenu.addAction(sabado)
+        optionMenu.addAction(cancelar)
+        
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+    }
+    
     @IBAction func gerarNumero() {
         
         var numero = Int(arc4random_uniform(UInt32(compartilhado.arrayPratos.count)))
