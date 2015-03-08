@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var arrayPratos : NSMutableArray = NSMutableArray()
     
+    var indicePrato : Int = Int()
+    
     var pratoSelecionado : Int = Int()
     
     var window: UIWindow?

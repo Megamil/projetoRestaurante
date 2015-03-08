@@ -23,8 +23,7 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //Retirado o valor que foi adicionado para trazer os itens.
-        objeto = self.compartilhado.arrayPratos.objectAtIndex(compartilhado.pratoSelecionado - 1) as NSArray
+        objeto = self.compartilhado.arrayPratos.objectAtIndex(compartilhado.indicePrato) as NSArray
         
         titulo?.text = objeto.objectAtIndex(0) as? String
         descricao?.text = objeto.objectAtIndex(1) as? String
@@ -135,13 +134,7 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
         compartilhado.arrayPratos.removeAllObjects()
         
         var reload : PratosViewController = PratosViewController(nibName: "PratosViewController", bundle: nil)
-        reload.reloadInputViews()
         reload.viewDidLoad()
-        
-        reload.appsTableView?.reloadData()
-        reload.appsTableView?.reloadSectionIndexTitles()
-        
-        //Problema para recarregar a view anterior com os novos itens.
         
         self.dismissViewControllerAnimated(true, completion: nil)
         

@@ -9,9 +9,10 @@
 import UIKit
 
 class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     var compartilhado = UIApplication.sharedApplication().delegate as AppDelegate
-    @IBOutlet var appsTableView : UITableView?
+    
+    var resultados : NSArray = NSArray()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,7 @@ class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDa
         var err: NSError
         var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
         
-        var resultados : NSArray = jsonResult["resultados"] as NSArray
+        resultados = jsonResult["resultados"] as NSArray
         
         var i : Int = jsonResult["numResultados"] as Int
         
@@ -133,8 +134,11 @@ class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func sorteio (numero: Int) {
         
-        //Como o indexPath começa do Zero somei para acessar o banco de dados.
-        compartilhado.pratoSelecionado = Int(numero + 1) as Int
+        var resultado : NSDictionary = resultados[numero] as NSDictionary
+        
+        compartilhado.indicePrato = numero
+        
+        compartilhado.pratoSelecionado = NSString(string: resultado["id_prato"] as String).integerValue
         
         var itens : ItensPratosViewController = ItensPratosViewController(nibName: "ItensPratosViewController", bundle: nil)
         
@@ -145,8 +149,11 @@ class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        //Como o indexPath começa do Zero somei para acessar o banco de dados.
-        compartilhado.pratoSelecionado = Int(indexPath.row + 1) as Int
+        var resultado : NSDictionary = resultados[indexPath.row] as NSDictionary
+        
+        compartilhado.indicePrato = indexPath.row
+        
+        compartilhado.pratoSelecionado = NSString(string: resultado["id_prato"] as String).integerValue
         
         var itens : ItensPratosViewController = ItensPratosViewController(nibName: "ItensPratosViewController", bundle: nil)
         
