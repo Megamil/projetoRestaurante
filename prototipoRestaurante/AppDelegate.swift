@@ -10,23 +10,40 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+    //Variavel compartilhada que contém um array com os pedidos
     var arrayPedidos : NSMutableArray = NSMutableArray()
-
+    //Variavel compartilhada que contém um array com os Pratos do dia
     var arrayPratos : NSMutableArray = NSMutableArray()
-    
+    //Variavel compartilhada que contém um array com os Pratos da semana.
+    var arrayPratosSemana : NSMutableArray = NSMutableArray()
+     //Variavel compartilhada que contém o indice no array acima, usado quando a tela de itens é chamada
     var indicePrato : Int = Int()
-    
+    // indica qual dia sa semana o usuário escolheu
     var dia : Int = Int()
-    
+    //indica a forma escrita do dia da semana.
     var tituloDia : String = String()
-    
+    //indica o id_prato do prato selecionado, usado na tela de itens
     var pratoSelecionado : Int = Int()
     
     var window: UIWindow?
-    
+    //usado para não permitir que o usuário faça um pedido de um prato em um dia diferênte ao de hoje.
     var boolPedir : Bool = true
+    //usado para impedir novos pedidos em caso de um estar em andamento.
+    var travarPedidos : Bool = true
+    
+    func hoje() -> Int {
+        let today = NSDate()
+        let formatter  = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let data = formatter.stringFromDate(today)
+        let stringData = formatter.dateFromString(data)
+        let myCalendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
+        let myComponents = myCalendar?.components(.WeekdayCalendarUnit, fromDate: stringData!)
+        var weekDay = myComponents?.weekday
         
+        return weekDay!.hashValue
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         return true

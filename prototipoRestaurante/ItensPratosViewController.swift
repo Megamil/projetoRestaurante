@@ -26,7 +26,45 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
         
         if compartilhado.boolPedir == false {
             pedir.setTitle("INFORMAÇÕES",  forState: UIControlState.Normal)
-        }
+            
+            objeto = self.compartilhado.arrayPratosSemana.objectAtIndex(compartilhado.indicePrato) as NSArray
+            
+            titulo?.text = objeto.objectAtIndex(0) as? String
+            descricao?.text = objeto.objectAtIndex(1) as? String
+            var icone : UIImage? = UIImage(named: objeto.objectAtIndex(2) as String)
+            imagemSuperior.image = icone
+            
+            
+            let urlPath: String = "http://localhost:8888/MysqlJsonItens.php?id=\(compartilhado.pratoSelecionado)"
+            var url: NSURL = NSURL(string: urlPath)!
+            var request1: NSURLRequest = NSURLRequest(URL: url)
+            var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
+            var error: NSErrorPointer = nil
+            var dataVal: NSData =  NSURLConnection.sendSynchronousRequest(request1, returningResponse: response, error:nil)!
+            var err: NSError
+            var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+            
+            var resultados : NSArray = jsonResult["resultados"] as NSArray
+            
+            var i : Int = jsonResult["numResultados"] as Int
+            
+            if (i > 0) {
+                
+                for x in 0...i-1
+                    
+                {
+                    var resultado : NSDictionary = resultados[x] as NSDictionary
+                    
+                    var item : String = resultado["descricao"] as String
+                    var titulo : String = "\(item)"
+                    var img : String = resultado["descricao_ilustracao"] as String
+                    
+                    var temparray : NSArray = NSArray(objects: titulo, img)
+                    self.arrayItens.addObject(temparray)
+                    
+                }
+            }
+        } else {
 
         objeto = self.compartilhado.arrayPratos.objectAtIndex(compartilhado.indicePrato) as NSArray
         
@@ -63,6 +101,7 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
                 var temparray : NSArray = NSArray(objects: titulo, img)
                 self.arrayItens.addObject(temparray)
                 
+                }
             }
         }
         
@@ -109,7 +148,7 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
         detalhes.title = title
         detalhes.message = mensagem
         detalhes.addButtonWithTitle("OK")
-        if compartilhado.boolPedir == true {
+        if compartilhado.boolPedir == true && compartilhado.travarPedidos == true {
             
             detalhes.addButtonWithTitle("Pedir")
         

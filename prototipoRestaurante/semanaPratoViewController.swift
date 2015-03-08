@@ -19,8 +19,6 @@ class semanaPratoViewController: UIViewController, UITableViewDelegate, UITableV
         
         titulo.text = compartilhado.tituloDia
         
-        compartilhado.arrayPratos.removeAllObjects()
-        
         let urlPath: String = "http://localhost:8888/MysqlJsonPratos.php?id=\(compartilhado.dia)"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
@@ -71,7 +69,7 @@ class semanaPratoViewController: UIViewController, UITableViewDelegate, UITableV
                 }
                 
                 var temparray : NSArray = NSArray(objects: titulo, descricao, img)
-                self.compartilhado.arrayPratos.addObject(temparray)
+                self.compartilhado.arrayPratosSemana.addObject(temparray)
                 
             }
         }
@@ -81,7 +79,7 @@ class semanaPratoViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return compartilhado.arrayPratos.count
+        return compartilhado.arrayPratosSemana.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -95,7 +93,7 @@ class semanaPratoViewController: UIViewController, UITableViewDelegate, UITableV
             
         }
         
-        var objeto : NSArray = self.compartilhado.arrayPratos.objectAtIndex(indexPath.row) as NSArray
+        var objeto : NSArray = self.compartilhado.arrayPratosSemana.objectAtIndex(indexPath.row) as NSArray
         
         celula?.textLabel?.text = objeto.objectAtIndex(0) as? String
         celula?.detailTextLabel?.text = objeto.objectAtIndex(1) as? String
@@ -116,8 +114,11 @@ class semanaPratoViewController: UIViewController, UITableViewDelegate, UITableV
         compartilhado.indicePrato = indexPath.row
         
         compartilhado.pratoSelecionado = NSString(string: resultado["id_prato"] as String).integerValue
-        
-        compartilhado.boolPedir = false
+        if compartilhado.dia != compartilhado.hoje() {
+         
+            compartilhado.boolPedir = false
+            
+        }
         
         var itens : ItensPratosViewController = ItensPratosViewController(nibName: "ItensPratosViewController", bundle: nil)
         
@@ -130,7 +131,7 @@ class semanaPratoViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @IBAction func sair() {
-        
+        compartilhado.arrayPratosSemana.removeAllObjects()
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }

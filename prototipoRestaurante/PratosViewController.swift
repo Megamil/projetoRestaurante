@@ -17,17 +17,7 @@ class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let today = NSDate()
-        let formatter  = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        let data = formatter.stringFromDate(today)
-        let stringData = formatter.dateFromString(data)
-        let myCalendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
-        let myComponents = myCalendar?.components(.WeekdayCalendarUnit, fromDate: stringData!)
-        var weekDay = myComponents?.weekday
-        
-        
-        let urlPath: String = "http://localhost:8888/MysqlJsonPratos.php?id=\(weekDay!.hashValue)"
+        let urlPath: String = "http://localhost:8888/MysqlJsonPratos.php?id=\(compartilhado.hoje())"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
