@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //usado para não permitir que o usuário faça um pedido de um prato em um dia diferênte ao de hoje.
     var boolPedir : Bool = true
     //usado para impedir novos pedidos em caso de um estar em andamento.
-    var travarPedidos : Bool = true
+    var travarPedidos : Bool = false
     
     func hoje() -> Int {
         let today = NSDate()

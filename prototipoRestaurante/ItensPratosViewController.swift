@@ -148,7 +148,7 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
         detalhes.title = title
         detalhes.message = mensagem
         detalhes.addButtonWithTitle("OK")
-        if compartilhado.boolPedir == true && compartilhado.travarPedidos == true {
+        if compartilhado.boolPedir == true && compartilhado.travarPedidos == false {
             
             detalhes.addButtonWithTitle("Pedir")
         
