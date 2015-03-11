@@ -1,10 +1,9 @@
-//
 //  BebidasViewController.swift
 //  prototipoRestaurante
 //
 //  Created by Eduardo dos santos on 22/02/15.
 //  Copyright (c) 2015 megamil. All rights reserved.
-//
+
 
 import UIKit
 
@@ -54,7 +53,8 @@ class BebidasViewController: UIViewController, UITableViewDataSource, UITableVie
                 var titulo : String = "\(bebida) - \(quantidade) \(medida) R$ \(preçoFormatado)"
                 var descrição : String = resultado["tipo_bebida"] as String
                 var img : String = resultado["descricao_ilustracao"] as String
-                var temparray : NSArray = NSArray(objects: titulo,descrição, img)
+                var id : Int = NSString(string: resultado["id_bebida"] as String).integerValue
+                var temparray : NSArray = NSArray(objects: titulo,descrição, img, id)
                 self.arrayBebidas.addObject(temparray)
                 
             }
@@ -107,14 +107,79 @@ class BebidasViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let title : String = String(myObject.objectAtIndex(0) as String)
         
-        let mensagem : String = String(myObject.objectAtIndex(1) as String)
+        var mensagem : String = String(myObject.objectAtIndex(1) as String)
+        
+        var id : Int = myObject.objectAtIndex(3) as Int
+        
+        var dias = ""
+        
+        let urlPath: String = "http://localhost:8888/diasBebidas.php?id=\(id)"
+        var url: NSURL = NSURL(string: urlPath)!
+        var request1: NSURLRequest = NSURLRequest(URL: url)
+        var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
+        var error: NSErrorPointer = nil
+        var dataVal: NSData =  NSURLConnection.sendSynchronousRequest(request1, returningResponse: response, error:nil)!
+        var err: NSError
+        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+        
+        var resultados : NSArray = jsonResult["resultados"] as NSArray
+        
+        var i : Int = jsonResult["numResultados"] as Int
+        
+        if (i > 0) {
+            
+            compartilhado.boolPedir = false
+            
+            for x in 0...i-1
+                
+            {
+                var resultado : NSDictionary = resultados[x] as NSDictionary
+                
+                var dia : String = resultado["dia_semana"] as String
+                var id : Int = NSString(string: resultado["id_semana"] as String).integerValue
+                
+                dias = "\(dias) \n \(dia)"
+                
+                if( compartilhado.boolPedir == false) {
+                    
+                    if(id == 10) {
+                        compartilhado.boolPedir = true
+                        
+                    } else if (compartilhado.hoje() == 1 || compartilhado.hoje() == 7) {
+                        
+                        if(id == compartilhado.hoje() || id == 9) {
+                            compartilhado.boolPedir = true
+                        }
+                        
+                        
+                    } else {
+                        
+                        if(id == compartilhado.hoje() || id == 8) {
+                            compartilhado.boolPedir = true
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+        mensagem = "\(mensagem) \n Dias disponíveis: \(dias)"
+
         
         var detalhes : UIAlertView = UIAlertView()
         detalhes.delegate = self
         detalhes.title = title
         detalhes.message = mensagem
         detalhes.addButtonWithTitle("OK")
-        detalhes.addButtonWithTitle("Pedir")
+        if compartilhado.travarPedidos == false && compartilhado.boolPedir == true {
+            
+            detalhes.addButtonWithTitle("Pedir")
+            
+        }
+        
         detalhes.show()
         
     }
@@ -147,14 +212,79 @@ class BebidasViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let title : String = String(myObject.objectAtIndex(0) as String)
         
-        let mensagem : String = String(myObject.objectAtIndex(1) as String)
+        var mensagem : String = String(myObject.objectAtIndex(1) as String)
+        
+        var id : Int = myObject.objectAtIndex(3) as Int
+        
+        var dias = ""
+        
+        let urlPath: String = "http://localhost:8888/diasBebidas.php?id=\(id)"
+        var url: NSURL = NSURL(string: urlPath)!
+        var request1: NSURLRequest = NSURLRequest(URL: url)
+        var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
+        var error: NSErrorPointer = nil
+        var dataVal: NSData =  NSURLConnection.sendSynchronousRequest(request1, returningResponse: response, error:nil)!
+        var err: NSError
+        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+        
+        var resultados : NSArray = jsonResult["resultados"] as NSArray
+        
+        var i : Int = jsonResult["numResultados"] as Int
+        
+        if (i > 0) {
+            
+            compartilhado.boolPedir = false
+            
+            for x in 0...i-1
+                
+            {
+                var resultado : NSDictionary = resultados[x] as NSDictionary
+                
+                var dia : String = resultado["dia_semana"] as String
+                var id : Int = NSString(string: resultado["id_semana"] as String).integerValue
+                
+                dias = "\(dias) \n \(dia)"
+                
+                if( compartilhado.boolPedir == false) {
+                    
+                    if(id == 10) {
+                        compartilhado.boolPedir = true
+                        
+                    } else if (compartilhado.hoje() == 1 || compartilhado.hoje() == 7) {
+                        
+                        if(id == compartilhado.hoje() || id == 9) {
+                            compartilhado.boolPedir = true
+                        }
+                        
+                        
+                    } else {
+                        
+                        if(id == compartilhado.hoje() || id == 8) {
+                            compartilhado.boolPedir = true
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+        mensagem = "\(mensagem) \n Dias disponíveis: \(dias)"
+        
         
         var detalhes : UIAlertView = UIAlertView()
         detalhes.delegate = self
         detalhes.title = title
         detalhes.message = mensagem
         detalhes.addButtonWithTitle("OK")
-        detalhes.addButtonWithTitle("Pedir")
+        if compartilhado.travarPedidos == false && compartilhado.boolPedir == true {
+            
+            detalhes.addButtonWithTitle("Pedir")
+            
+        }
+        
         detalhes.show()
         
     }
