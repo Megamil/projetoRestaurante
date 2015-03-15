@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -108,10 +109,58 @@
                                     </mask>
                                 </variation>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PREÇO:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8OV-cx-KOs">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="/" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D4R-Cj-zct">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="58e-bz-Kww"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="58e-bz-Kww"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="58e-bz-Kww"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elA-CI-OKy">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="G4K-Xz-eIM"/>
+                                </constraints>
+                                <state key="normal" title="Dividir por:">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="G4K-Xz-eIM"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="G4K-Xz-eIM"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="dividirPor" destination="UaD-XV-xTb" eventType="touchUpInside" id="10f-iK-unP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="elA-CI-OKy" firstAttribute="leading" secondItem="8OV-cx-KOs" secondAttribute="trailing" constant="87" id="2dw-OJ-pSZ"/>
                             <constraint firstItem="2br-9g-CQV" firstAttribute="leading" secondItem="DOS-iN-Yzk" secondAttribute="leading" id="FmD-jh-DnL"/>
+                            <constraint firstItem="D4R-Cj-zct" firstAttribute="leading" secondItem="elA-CI-OKy" secondAttribute="trailing" constant="3" id="HdL-VY-ELW"/>
                             <constraint firstItem="2br-9g-CQV" firstAttribute="top" secondItem="DOS-iN-Yzk" secondAttribute="bottom" constant="8" symbolic="YES" id="Nv7-3T-Wv9"/>
                             <constraint firstAttribute="centerX" secondItem="DOS-iN-Yzk" secondAttribute="centerX" constant="100" id="P57-Vn-uAi">
                                 <variation key="heightClass=regular-widthClass=compact" constant="96"/>
@@ -119,24 +168,41 @@
                             <constraint firstItem="YCs-5X-QVY" firstAttribute="top" secondItem="aQ1-7P-6jr" secondAttribute="bottom" constant="149" id="Qhm-K8-3lI">
                                 <variation key="heightClass=regular-widthClass=compact" constant="129"/>
                             </constraint>
+                            <constraint firstItem="YCs-5X-QVY" firstAttribute="top" secondItem="D4R-Cj-zct" secondAttribute="bottom" constant="2" id="R1E-fo-Bgz"/>
+                            <constraint firstItem="elA-CI-OKy" firstAttribute="baseline" secondItem="8OV-cx-KOs" secondAttribute="firstBaseline" id="VbQ-ft-r3U"/>
                             <constraint firstItem="DOS-iN-Yzk" firstAttribute="top" secondItem="aQ1-7P-6jr" secondAttribute="bottom" constant="149" id="Ws5-sh-gFF">
                                 <variation key="heightClass=regular-widthClass=compact" constant="129"/>
                             </constraint>
+                            <constraint firstItem="DOS-iN-Yzk" firstAttribute="top" secondItem="8OV-cx-KOs" secondAttribute="bottom" id="YoP-Cn-RzV"/>
                             <constraint firstAttribute="centerX" secondItem="YCs-5X-QVY" secondAttribute="centerX" constant="-104" id="dT0-iP-icz"/>
+                            <constraint firstItem="D4R-Cj-zct" firstAttribute="trailing" secondItem="46R-wA-0Xg" secondAttribute="trailingMargin" id="eJL-fV-y1a"/>
+                            <constraint firstItem="8OV-cx-KOs" firstAttribute="leading" secondItem="46R-wA-0Xg" secondAttribute="leadingMargin" constant="-10" id="lVa-OT-Arb"/>
+                            <constraint firstItem="elA-CI-OKy" firstAttribute="baseline" secondItem="D4R-Cj-zct" secondAttribute="baseline" id="sN3-Tf-uma"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="2br-9g-CQV"/>
                                 <exclude reference="YCs-5X-QVY"/>
                                 <exclude reference="DOS-iN-Yzk"/>
+                                <exclude reference="8OV-cx-KOs"/>
+                                <exclude reference="D4R-Cj-zct"/>
+                                <exclude reference="elA-CI-OKy"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="lVa-OT-Arb"/>
                                 <exclude reference="P57-Vn-uAi"/>
                                 <exclude reference="Ws5-sh-gFF"/>
-                                <exclude reference="Qhm-K8-3lI"/>
-                                <exclude reference="dT0-iP-icz"/>
+                                <exclude reference="YoP-Cn-RzV"/>
                                 <exclude reference="FmD-jh-DnL"/>
                                 <exclude reference="Nv7-3T-Wv9"/>
+                                <exclude reference="Qhm-K8-3lI"/>
+                                <exclude reference="R1E-fo-Bgz"/>
+                                <exclude reference="dT0-iP-icz"/>
+                                <exclude reference="2dw-OJ-pSZ"/>
+                                <exclude reference="VbQ-ft-r3U"/>
+                                <exclude reference="sN3-Tf-uma"/>
+                                <exclude reference="HdL-VY-ELW"/>
+                                <exclude reference="eJL-fV-y1a"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -144,20 +210,33 @@
                                 <include reference="2br-9g-CQV"/>
                                 <include reference="YCs-5X-QVY"/>
                                 <include reference="DOS-iN-Yzk"/>
+                                <include reference="8OV-cx-KOs"/>
+                                <include reference="D4R-Cj-zct"/>
+                                <include reference="elA-CI-OKy"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="lVa-OT-Arb"/>
                                 <include reference="P57-Vn-uAi"/>
                                 <include reference="Ws5-sh-gFF"/>
-                                <include reference="Qhm-K8-3lI"/>
-                                <include reference="dT0-iP-icz"/>
+                                <include reference="YoP-Cn-RzV"/>
                                 <include reference="FmD-jh-DnL"/>
                                 <include reference="Nv7-3T-Wv9"/>
+                                <include reference="Qhm-K8-3lI"/>
+                                <include reference="R1E-fo-Bgz"/>
+                                <include reference="dT0-iP-icz"/>
+                                <include reference="2dw-OJ-pSZ"/>
+                                <include reference="VbQ-ft-r3U"/>
+                                <include reference="sN3-Tf-uma"/>
+                                <include reference="HdL-VY-ELW"/>
+                                <include reference="eJL-fV-y1a"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Pedidos" image="pedido.png" id="2UA-qX-nn3"/>
                     <connections>
                         <outlet property="appsTableView" destination="2br-9g-CQV" id="rMg-MH-W3z"/>
+                        <outlet property="inputDivisao" destination="D4R-Cj-zct" id="0q6-RL-5u5"/>
+                        <outlet property="label_Preço" destination="8OV-cx-KOs" id="ecF-3z-tix"/>
                         <outlet property="tableView" destination="2br-9g-CQV" id="noz-mt-Ato"/>
                     </connections>
                 </viewController>

@@ -18,7 +18,7 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let urlPath: String = "http://localhost:8888/MysqlJsonLanches.php"
+        let urlPath: String = "http://localhost:8888/restaurante/json/MysqlJsonLanches.php"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
@@ -56,9 +56,9 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
                 //Formatando a string preço.
                 var preçoFormatado : String = NSString(format: "%.2f", preço) as String
                 
-                preçoFormatado = preçoFormatado.stringByReplacingOccurrencesOfString(".", withString: ",", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                var preçoFormatado2 = preçoFormatado.stringByReplacingOccurrencesOfString(".", withString: ",", options: NSStringCompareOptions.LiteralSearch, range: nil)
                 
-                var titulo : String = "\(lanche) - R$ \(preçoFormatado)"
+                var titulo : String = "\(lanche) - R$ \(preçoFormatado2)"
                 
                 var descricao : String = ""
                 
@@ -68,7 +68,7 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
                 
                 var img : String = resultado["descricao_ilustracao"] as String
                 var id : Int = NSString(string: resultado["id_lanche"] as String).integerValue
-                var temparray : NSArray = NSArray(objects: titulo, descricao, img, id)
+                var temparray : NSArray = NSArray(objects: titulo, descricao, img, id, preçoFormatado)
                 self.arrayLanches.addObject(temparray)
                 
             }
@@ -125,7 +125,7 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         var dias = ""
         
-        let urlPath: String = "http://localhost:8888/diasLanches.php?id=\(id)"
+        let urlPath: String = "http://localhost:8888/restaurante/json/diasLanches.php?id=\(id)"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
@@ -194,13 +194,14 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
         detalhes.show()
 
     }
-    
+        //Ao pedir
         func alertView(View: UIAlertView!, clickedButtonAtIndex buttonIndex: Int){
             
             switch buttonIndex{
                 
             case 1:
                 compartilhado.arrayPedidos.addObject(myObject)
+            compartilhado.preçoTotal += myObject.objectAtIndex(4).floatValue
                 break
             default:
                 break
@@ -230,7 +231,7 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         var dias = ""
         
-        let urlPath: String = "http://localhost:8888/diasLanches.php?id=\(id)"
+        let urlPath: String = "http://localhost:8888/restaurante/json/diasLanches.php?id=\(id)"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil

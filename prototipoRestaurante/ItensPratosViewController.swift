@@ -35,7 +35,7 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
             imagemSuperior.image = icone
             
             
-            let urlPath: String = "http://localhost:8888/MysqlJsonItens.php?id=\(compartilhado.pratoSelecionado)"
+            let urlPath: String = "http://localhost:8888/restaurante/json/MysqlJsonItens.php?id=\(compartilhado.pratoSelecionado)"
             var url: NSURL = NSURL(string: urlPath)!
             var request1: NSURLRequest = NSURLRequest(URL: url)
             var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
@@ -74,7 +74,7 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
         imagemSuperior.image = icone
         
         
-        let urlPath: String = "http://localhost:8888/MysqlJsonItens.php?id=\(compartilhado.pratoSelecionado)"
+        let urlPath: String = "http://localhost:8888//restaurante/json/MysqlJsonItens.php?id=\(compartilhado.pratoSelecionado)"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
@@ -158,13 +158,14 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
         
         
     }
-
+    //Ao pedir
     func alertView(View: UIAlertView!, clickedButtonAtIndex buttonIndex: Int){
         
         switch buttonIndex{
             
         case 1:
             compartilhado.arrayPedidos.addObject(objeto)
+            compartilhado.preçoTotal += objeto.objectAtIndex(4).floatValue
             break
         default:
             break

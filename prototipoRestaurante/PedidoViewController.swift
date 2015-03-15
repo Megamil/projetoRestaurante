@@ -11,6 +11,8 @@ import UIKit
 class PedidoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var label_Preço: UILabel!
+    @IBOutlet weak var inputDivisao: UITextField!
     
     var compartilhado = UIApplication.sharedApplication().delegate as AppDelegate
     
@@ -27,7 +29,55 @@ class PedidoViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     
+    
+    @IBAction func dividirPor() {
+        
+        var dividir : Float = NSString(string: inputDivisao.text).floatValue
+        
+        if(compartilhado.preçoTotal <= 0) {
+
+            var dados : UIAlertView = UIAlertView()
+            dados.title = " Dividir conta "
+            dados.message = "Você ainda não fez nenhum pedido."
+            dados.addButtonWithTitle("OK")
+            dados.show()
+            
+        
+        } else if(dividir > 1) {
+        
+        var valor : Float = compartilhado.preçoTotal / dividir
+        
+        var valor2 = NSString(format: "%.2f", valor) as String
+        
+        var valorFormatado = valor2.stringByReplacingOccurrencesOfString(".", withString: ",", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        
+        var dados : UIAlertView = UIAlertView()
+        dados.title = " Dividir conta "
+        dados.message = "A conta dividida por \(inputDivisao.text) pessoas sairá por: R$ \(valorFormatado) para cada."
+        dados.addButtonWithTitle("OK")
+        dados.show()
+        
+        } else {
+            
+            var dados : UIAlertView = UIAlertView()
+            dados.title = " Dividir conta "
+            dados.message = "Digite o número total de pessoas que irão dividir a conta"
+            dados.addButtonWithTitle("OK")
+            dados.show()
+            
+        }
+        
+    }
+    
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        
+        var preçoFormatando : String = NSString(format: "%.2f", compartilhado.preçoTotal) as String
+        
+        var preçoFormatado = preçoFormatando.stringByReplacingOccurrencesOfString(".", withString: ",", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        
+        label_Preço.text = "Total R$: \(preçoFormatado)"
         
         var id : String = "pedidos"
         
@@ -78,6 +128,8 @@ class PedidoViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case 1:
             compartilhado.arrayPedidos.removeAllObjects()
             self.dismissViewControllerAnimated(true, completion: nil)
+            compartilhado.preçoTotal = 0.00
+            label_Preço.text = "Total R$: 0,00"
             tableView.reloadData()
             break
         default:

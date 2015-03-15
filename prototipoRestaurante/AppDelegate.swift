@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var tituloDia : String = String()
     //indica o id_prato do prato selecionado, usado na tela de itens
     var pratoSelecionado : Int = Int()
+    //Registra o preço total do pedido.
+    var preçoTotal : Float = 0.00
     
     var window: UIWindow?
     //usado para não permitir que o usuário faça um pedido de um prato em um dia diferênte ao de hoje.

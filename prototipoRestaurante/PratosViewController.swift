@@ -17,7 +17,7 @@ class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let urlPath: String = "http://localhost:8888/MysqlJsonPratos.php?id=\(compartilhado.hoje())"
+        let urlPath: String = "http://localhost:8888/restaurante/json/MysqlJsonPratos.php?id=\(compartilhado.hoje())"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
@@ -55,9 +55,9 @@ class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 //Formatando a string preço.
                 var preçoFormatado : String = NSString(format: "%.2f", preço) as String
                 
-                preçoFormatado = preçoFormatado.stringByReplacingOccurrencesOfString(".", withString: ",", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                var preçoFormatado2 = preçoFormatado.stringByReplacingOccurrencesOfString(".", withString: ",", options: NSStringCompareOptions.LiteralSearch, range: nil)
                 
-                var titulo : String = "\(prato) - R$ \(preçoFormatado)"
+                var titulo : String = "\(prato) - R$ \(preçoFormatado2)"
                 var img : String = resultado["descricao_ilustracao"] as String
                 
                 var descricao : String = ""
@@ -66,7 +66,9 @@ class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     descricao = "Acompanha : \(acompanha) \(quantidade) \(medida)"
                 }
                 
-                var temparray : NSArray = NSArray(objects: titulo, descricao, img)
+                
+                var id : Int = NSString(string: resultado["id_prato"] as String).integerValue
+                var temparray : NSArray = NSArray(objects: titulo, descricao, img,id,preçoFormatado)
                 self.compartilhado.arrayPratos.addObject(temparray)
                 
             }
