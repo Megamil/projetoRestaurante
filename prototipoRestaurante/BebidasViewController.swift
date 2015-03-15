@@ -20,7 +20,7 @@ class BebidasViewController: UIViewController, UITableViewDataSource, UITableVie
      override func viewDidLoad() {
         super.viewDidLoad()
 
-        let urlPath: String = "http://localhost:8888/restaurante/json/MysqlJsonBebidas.php"
+        let urlPath: String = "\(compartilhado.endereço)MysqlJsonBebidas.php"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
@@ -54,7 +54,8 @@ class BebidasViewController: UIViewController, UITableViewDataSource, UITableVie
                 var descrição : String = resultado["tipo_bebida"] as String
                 var img : String = resultado["descricao_ilustracao"] as String
                 var id : Int = NSString(string: resultado["id_bebida"] as String).integerValue
-                var temparray : NSArray = NSArray(objects: titulo,descrição, img, id,preçoFormatado)
+                var referencia : String = "bebida"
+                var temparray : NSArray = NSArray(objects: titulo,descrição, img, id,preçoFormatado,referencia)
                 self.arrayBebidas.addObject(temparray)
                 
             }
@@ -113,7 +114,7 @@ class BebidasViewController: UIViewController, UITableViewDataSource, UITableVie
         
         var dias = ""
         
-        let urlPath: String = "http://localhost:8888/restaurante/json/diasBebidas.php?id=\(id)"
+        let urlPath: String = "\(compartilhado.endereço)diasBebidas.php?id=\(id)"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
@@ -220,7 +221,7 @@ class BebidasViewController: UIViewController, UITableViewDataSource, UITableVie
         
         var dias = ""
         
-        let urlPath: String = "http://localhost:8888/restaurante/json/diasBebidas.php?id=\(id)"
+        let urlPath: String = "\(compartilhado.endereço)diasBebidas.php?id=\(id)"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
@@ -243,25 +244,25 @@ class BebidasViewController: UIViewController, UITableViewDataSource, UITableVie
                 var resultado : NSDictionary = resultados[x] as NSDictionary
                 
                 var dia : String = resultado["dia_semana"] as String
-                var id : Int = NSString(string: resultado["id_semana"] as String).integerValue
+                var id_ : Int = NSString(string: resultado["id_semana"] as String).integerValue
                 
                 dias = "\(dias) \n \(dia)"
                 
-                if( compartilhado.boolPedir == false) {
+                if(compartilhado.boolPedir == false) {
                     
-                    if(id == 10) {
+                    if(id_ == 10) {
                         compartilhado.boolPedir = true
                         
                     } else if (compartilhado.hoje() == 1 || compartilhado.hoje() == 7) {
                         
-                        if(id == compartilhado.hoje() || id == 9) {
+                        if(id_ == compartilhado.hoje() || id_ == 9) {
                             compartilhado.boolPedir = true
                         }
                         
                         
                     } else {
                         
-                        if(id == compartilhado.hoje() || id == 8) {
+                        if(id_ == compartilhado.hoje() || id_ == 8) {
                             compartilhado.boolPedir = true
                         }
                         
@@ -273,6 +274,13 @@ class BebidasViewController: UIViewController, UITableViewDataSource, UITableVie
             
         }
         
+        
+        if (compartilhado.boolPedir == false) {
+            
+            self.gerarNumero()
+            
+        } else {
+            
         mensagem = "\(mensagem) \n Dias disponíveis: \(dias)"
         
         
@@ -289,8 +297,7 @@ class BebidasViewController: UIViewController, UITableViewDataSource, UITableVie
         
         detalhes.show()
         
+        }
     }
-    
-
 
 }

@@ -18,7 +18,7 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let urlPath: String = "http://localhost:8888/restaurante/json/MysqlJsonLanches.php"
+        let urlPath: String = "\(compartilhado.endereço)MysqlJsonLanches.php"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
@@ -68,7 +68,8 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
                 
                 var img : String = resultado["descricao_ilustracao"] as String
                 var id : Int = NSString(string: resultado["id_lanche"] as String).integerValue
-                var temparray : NSArray = NSArray(objects: titulo, descricao, img, id, preçoFormatado)
+                var referencia : String = "lanche"
+                var temparray : NSArray = NSArray(objects: titulo, descricao, img, id, preçoFormatado,referencia)
                 self.arrayLanches.addObject(temparray)
                 
             }
@@ -125,7 +126,7 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         var dias = ""
         
-        let urlPath: String = "http://localhost:8888/restaurante/json/diasLanches.php?id=\(id)"
+        let urlPath: String = "\(compartilhado.endereço)diasLanches.php?id=\(id)"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
@@ -163,7 +164,6 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
                         compartilhado.boolPedir = true
                     }
                     
-                    
                 } else {
                     
                     if(id == compartilhado.hoje() || id == 8) {
@@ -171,9 +171,9 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
                     }
                     
                 }
-                    
+            
             }
-        
+                    
         }
         
     }
@@ -231,7 +231,7 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         var dias = ""
         
-        let urlPath: String = "http://localhost:8888/restaurante/json/diasLanches.php?id=\(id)"
+        let urlPath: String = "\(compartilhado.endereço)diasLanches.php?id=\(id)"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil

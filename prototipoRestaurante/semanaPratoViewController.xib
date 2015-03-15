@@ -146,6 +146,8 @@
                     <exclude reference="wfe-QV-REy"/>
                 </mask>
                 <mask key="constraints">
+                    <exclude reference="tJR-ee-7ao"/>
+                    <exclude reference="xcP-YY-fZu"/>
                     <exclude reference="GXk-tm-pWI"/>
                     <exclude reference="TFR-48-7NF"/>
                     <exclude reference="beB-QL-TjD"/>
@@ -153,7 +155,6 @@
                     <exclude reference="WT7-Wm-olo"/>
                     <exclude reference="dgI-et-aHC"/>
                     <exclude reference="qSj-NP-1Th"/>
-                    <exclude reference="aQu-yd-bBN"/>
                     <exclude reference="Da9-o0-IaQ"/>
                     <exclude reference="OSD-At-6dN"/>
                     <exclude reference="Pce-O0-mpM"/>
@@ -161,8 +162,7 @@
                     <exclude reference="cDE-Nw-78T"/>
                     <exclude reference="jr2-CX-O7W"/>
                     <exclude reference="mdl-xx-Zoy"/>
-                    <exclude reference="tJR-ee-7ao"/>
-                    <exclude reference="xcP-YY-fZu"/>
+                    <exclude reference="aQu-yd-bBN"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -174,6 +174,8 @@
                     <include reference="wfe-QV-REy"/>
                 </mask>
                 <mask key="constraints">
+                    <include reference="tJR-ee-7ao"/>
+                    <include reference="xcP-YY-fZu"/>
                     <include reference="GXk-tm-pWI"/>
                     <include reference="TFR-48-7NF"/>
                     <include reference="beB-QL-TjD"/>
@@ -181,7 +183,6 @@
                     <include reference="WT7-Wm-olo"/>
                     <include reference="dgI-et-aHC"/>
                     <include reference="qSj-NP-1Th"/>
-                    <include reference="aQu-yd-bBN"/>
                     <include reference="Da9-o0-IaQ"/>
                     <include reference="OSD-At-6dN"/>
                     <include reference="Pce-O0-mpM"/>
@@ -189,8 +190,7 @@
                     <include reference="cDE-Nw-78T"/>
                     <include reference="jr2-CX-O7W"/>
                     <include reference="mdl-xx-Zoy"/>
-                    <include reference="tJR-ee-7ao"/>
-                    <include reference="xcP-YY-fZu"/>
+                    <include reference="aQu-yd-bBN"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="477" y="608"/>

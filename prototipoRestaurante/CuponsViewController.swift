@@ -8,14 +8,19 @@
 
 import UIKit
 
-class CuponsViewController: UIViewController, UITextFieldDelegate {
+class CuponsViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var txtCodigo: UITextField!
+    @IBOutlet weak var zerarCupons: UIButton!
+    @IBOutlet weak var addCupom: UIButton!
+    var arrayCupons : NSMutableArray = NSMutableArray()
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.txtCodigo.delegate = self
+        zerarCupons.hidden = true
 
     }
 
@@ -24,24 +29,46 @@ class CuponsViewController: UIViewController, UITextFieldDelegate {
 
     }
     
-    func textField(textField: UITextField!, shouldChangeCharactersInRange range: NSRange, replacementString string: String!) -> Bool {
+    @IBAction func adicionarCupom() {
         
-        let newLength = countElements(txtCodigo.text!) + countElements(string!) - range.length
-        return newLength < 6 //Não permite minizar o teclado quando tem Lenght 5
+        var temparray : NSArray = NSArray(objects: txtCodigo.text)
+        
+        self.arrayCupons.addObject(temparray)
+        
+        tableView.reloadData()
         
     }
     
-    @IBAction func textFieldReturn(sender: AnyObject) {
-        
+    @IBAction func minimizar (sender: AnyObject) {
+
         sender.resignFirstResponder()
+        txtCodigo.resignFirstResponder()
+    
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        var id : String = "cupons"
+        
+        var celula = tableView.dequeueReusableCellWithIdentifier(id) as? UITableViewCell
+        
+        if celula == nil {
+            
+            celula = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: id)
+            
+        }
+        
+        var objeto : NSArray = self.arrayCupons.objectAtIndex(indexPath.row) as NSArray
+        
+        celula?.textLabel?.text = objeto.objectAtIndex(0) as? String
+        
+        return celula!
         
     }
     
-    //Não funciona
-    @IBAction func minimizarSair() {
-        
-        txtCodigo.resignFirstResponder()
-        
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arrayCupons.count
     }
+
     
 }

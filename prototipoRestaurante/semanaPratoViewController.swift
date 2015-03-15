@@ -19,7 +19,7 @@ class semanaPratoViewController: UIViewController, UITableViewDelegate, UITableV
         
         titulo.text = compartilhado.tituloDia
         
-        let urlPath: String = "http://localhost:8888/MysqlJsonPratos.php?id=\(compartilhado.dia)"
+        let urlPath: String = "\(compartilhado.endereço)MysqlJsonPratos.php?id=\(compartilhado.dia)"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil

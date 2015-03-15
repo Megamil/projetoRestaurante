@@ -17,7 +17,7 @@ class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let urlPath: String = "http://localhost:8888/restaurante/json/MysqlJsonPratos.php?id=\(compartilhado.hoje())"
+        let urlPath: String = "\(compartilhado.endereço)MysqlJsonPratos.php?id=\(compartilhado.hoje())"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
@@ -68,7 +68,8 @@ class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 
                 
                 var id : Int = NSString(string: resultado["id_prato"] as String).integerValue
-                var temparray : NSArray = NSArray(objects: titulo, descricao, img,id,preçoFormatado)
+                var referencia : String = "prato"
+                var temparray : NSArray = NSArray(objects: titulo, descricao, img,id,preçoFormatado,referencia)
                 self.compartilhado.arrayPratos.addObject(temparray)
                 
             }

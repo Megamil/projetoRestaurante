@@ -13,6 +13,8 @@ class PedidoViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var label_Preço: UILabel!
     @IBOutlet weak var inputDivisao: UITextField!
+    @IBOutlet weak var label_pedido: UILabel!
+    @IBOutlet weak var botao_cancelar: UIButton!
     
     var compartilhado = UIApplication.sharedApplication().delegate as AppDelegate
     
@@ -20,7 +22,7 @@ class PedidoViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
@@ -29,6 +31,11 @@ class PedidoViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func claseKeyboard(){
+        
+        inputDivisao.resignFirstResponder()
+        
+    }
     
     @IBAction func dividirPor() {
         
@@ -71,8 +78,7 @@ class PedidoViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        
+
         var preçoFormatando : String = NSString(format: "%.2f", compartilhado.preçoTotal) as String
         
         var preçoFormatado = preçoFormatando.stringByReplacingOccurrencesOfString(".", withString: ",", options: NSStringCompareOptions.LiteralSearch, range: nil)
@@ -131,6 +137,14 @@ class PedidoViewController: UIViewController, UITableViewDelegate, UITableViewDa
             compartilhado.preçoTotal = 0.00
             label_Preço.text = "Total R$: 0,00"
             tableView.reloadData()
+            
+            if(botao_cancelar.titleLabel?.text == "FUI ATENDIDO") {
+                
+                botao_cancelar.setTitle("CANCELAR PEDIDO", forState: UIControlState.Normal)
+                label_pedido.text = ""
+                compartilhado.travarPedidos = false
+            }
+            
             break
         default:
             break
@@ -138,5 +152,80 @@ class PedidoViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-
+    @IBAction func pedir() {
+        
+        if (compartilhado.arrayPedidos.count > 0 && compartilhado.travarPedidos == false) {
+        
+        var pratos : String = String()
+        var lanches : String = String()
+        var bebidas : String = String()
+        var i = 0
+        
+        for(i; i < compartilhado.arrayPedidos.count; ++i){
+        
+        var pedido : NSArray = compartilhado.arrayPedidos.objectAtIndex(i) as NSArray
+            
+        var referencia : String = pedido.objectAtIndex(5) as String
+            
+        switch referencia {
+            
+            
+        case "prato":
+            pratos += "\(pedido.objectAtIndex(3))-"
+            break
+        case "lanche":
+            lanches += "\(pedido.objectAtIndex(3))-"
+            break
+            
+        case "bebida":
+           bebidas += "\(pedido.objectAtIndex(3))-"
+            break
+        default:
+            break
+            
+        }
+            
+        }
+        
+        var urlPath: String = "\(compartilhado.endereço)pedir.php?preco=\(compartilhado.preçoTotal)&pratos=\(pratos)&lanches=\(lanches)&bebidas=\(bebidas)"
+        var url: NSURL = NSURL(string: urlPath)!
+        var request1: NSURLRequest = NSURLRequest(URL: url)
+        var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
+        var error: NSErrorPointer = nil
+        var dataVal: NSData =  NSURLConnection.sendSynchronousRequest(request1, returningResponse: response, error:nil)!
+        var err: NSError
+        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+        
+        var resultados : NSArray = jsonResult["resultados"] as NSArray
+        
+        var resultado : NSDictionary = resultados[0] as NSDictionary
+        
+        var codPedido : String = resultado["pedidoNum"] as String
+        
+        label_pedido.text = "Pedido cadastrado com sucesso! \n informe o número \(codPedido) a um atendente"
+        
+        compartilhado.travarPedidos = true
+        botao_cancelar.setTitle("FUI ATENDIDO", forState: UIControlState.Normal)
+        
+        } else if (compartilhado.arrayPedidos.count <= 0) {
+         
+            let confirmar : UIAlertView = UIAlertView()
+            confirmar.delegate = self
+            confirmar.message = "Para realizar um novo pedido tenha certeza de que selecionou ao menos um item."
+            confirmar.addButtonWithTitle("OK")
+            confirmar.show()
+            
+        } else {
+                
+                let confirmar : UIAlertView = UIAlertView()
+                confirmar.delegate = self
+                confirmar.message = "Para realizar um novo pedido, primeiramente finalize o pedido atual precionando o botão FUI ATENDIDO!"
+                confirmar.addButtonWithTitle("OK")
+                confirmar.show()
+                
+            
+        }
+        
+    }
+    
 }

@@ -24,6 +24,10 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if compartilhado.travarPedidos == true {
+            pedir.setTitle("INFORMAÇÕES",  forState: UIControlState.Normal)
+        }
+        
         if compartilhado.boolPedir == false {
             pedir.setTitle("INFORMAÇÕES",  forState: UIControlState.Normal)
             
@@ -35,7 +39,7 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
             imagemSuperior.image = icone
             
             
-            let urlPath: String = "http://localhost:8888/restaurante/json/MysqlJsonItens.php?id=\(compartilhado.pratoSelecionado)"
+            let urlPath: String = "\(compartilhado.endereço)MysqlJsonItens.php?id=\(compartilhado.pratoSelecionado)"
             var url: NSURL = NSURL(string: urlPath)!
             var request1: NSURLRequest = NSURLRequest(URL: url)
             var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
@@ -74,7 +78,7 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
         imagemSuperior.image = icone
         
         
-        let urlPath: String = "http://localhost:8888//restaurante/json/MysqlJsonItens.php?id=\(compartilhado.pratoSelecionado)"
+        let urlPath: String = "\(compartilhado.endereço)MysqlJsonItens.php?id=\(compartilhado.pratoSelecionado)"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
