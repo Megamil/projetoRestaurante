@@ -48,6 +48,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return weekDay!.hashValue
     }
     
+    func data() -> String {
+        
+        let today = NSDate()
+        let formatter  = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let data = formatter.stringFromDate(today)
+        
+        return data
+        
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         return true

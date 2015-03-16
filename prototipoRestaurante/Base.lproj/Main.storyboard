@@ -1103,6 +1103,9 @@
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="92" width="400" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="zerar:" destination="gcc-Bt-v5U" eventType="touchUpInside" id="Bf4-oJ-Orb"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cupons" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="5" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jjF-FR-1pT">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>

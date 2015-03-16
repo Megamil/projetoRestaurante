@@ -20,20 +20,24 @@ class CuponsViewController: UIViewController, UITextFieldDelegate, UITableViewDa
     @IBOutlet weak var premioDesc: UILabel!
     @IBOutlet weak var titulo: UILabel!
     
+    var ultimoCupom : String = String()
+    
     var limiteCupons : Int = 5
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if(arrayCupons.count == limiteCupons) {
-        
+            
             txtCodigo.hidden = true
             addCupom.hidden = true
             zerarCupons.hidden = false
             
         } else {
             
-             zerarCupons.hidden = true
+            txtCodigo.hidden = false
+            addCupom.hidden = false
+            zerarCupons.hidden = true
             
         }
         
@@ -58,6 +62,19 @@ class CuponsViewController: UIViewController, UITextFieldDelegate, UITableViewDa
        
 
     }
+    
+    
+    @IBAction func zerar(sender: AnyObject) {
+        
+        titulo.text = "MEUS CUPONS"
+        arrayCupons.removeAllObjects()
+        tableView.reloadData()
+        txtCodigo.hidden = false
+        addCupom.hidden = false
+        zerarCupons.hidden = true
+        
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -65,6 +82,8 @@ class CuponsViewController: UIViewController, UITextFieldDelegate, UITableViewDa
     }
     
     @IBAction func adicionarCupom() {
+        
+        if(compartilhado.data() != ultimoCupom) {
         
         var urlPath: String = "\(compartilhado.endereço)validarCupom.php?cupom=\(txtCodigo.text)"
         var url: NSURL = NSURL(string: urlPath)!
@@ -88,6 +107,8 @@ class CuponsViewController: UIViewController, UITextFieldDelegate, UITableViewDa
         self.arrayCupons.addObject(temparray)
         
         txtCodigo.text = ""
+            
+        ultimoCupom = compartilhado.data()
         
         tableView.reloadData()
             
@@ -106,8 +127,18 @@ class CuponsViewController: UIViewController, UITextFieldDelegate, UITableViewDa
             validar.addButtonWithTitle("OK")
             validar.show()
             
-        }
+            }
             
+        } else {
+            
+            var validar : UIAlertView = UIAlertView()
+            validar.title = "Desculpe."
+            validar.message = "Você só pode cadastrar um cupom por dia" as String
+            validar.addButtonWithTitle("OK")
+            validar.show()
+            
+        }
+        
     }
     
     @IBAction func minimizar (sender: AnyObject) {
@@ -127,6 +158,8 @@ class CuponsViewController: UIViewController, UITextFieldDelegate, UITableViewDa
             
         } else {
             
+            txtCodigo.hidden = false
+            addCupom.hidden = false
             zerarCupons.hidden = true
             
         }
