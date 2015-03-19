@@ -184,10 +184,15 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
         detalhes.delegate = self
         detalhes.title = title
         detalhes.message = mensagem
-        detalhes.addButtonWithTitle("OK")
+        
         if compartilhado.travarPedidos == false && compartilhado.boolPedir == true {
          
+            detalhes.addButtonWithTitle("Cancelar")
             detalhes.addButtonWithTitle("Pedir")
+            
+        } else {
+            
+            detalhes.addButtonWithTitle("OK")
             
         }
         
@@ -296,11 +301,15 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
         detalhes.delegate = self
         detalhes.title = title
         detalhes.message = mensagem
-        detalhes.addButtonWithTitle("OK")
             
         if compartilhado.travarPedidos == false && compartilhado.boolPedir == true {
             
+            detalhes.addButtonWithTitle("Cancelar")
             detalhes.addButtonWithTitle("Pedir")
+            
+        } else {
+            
+            detalhes.addButtonWithTitle("OK")
             
         }
         

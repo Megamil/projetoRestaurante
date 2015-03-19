@@ -21,7 +21,7 @@ class CuponsViewController: UIViewController, UITextFieldDelegate, UITableViewDa
     @IBOutlet weak var titulo: UILabel!
     
     var ultimoCupom : String = String()
-    
+    //Define o número necessário de cupons para resgate do premio.
     var limiteCupons : Int = 5
     
     override func viewDidLoad() {
@@ -82,7 +82,7 @@ class CuponsViewController: UIViewController, UITextFieldDelegate, UITableViewDa
     }
     
     @IBAction func adicionarCupom() {
-        
+        //Verifica se já foi cadastrado um cupom no dia.
         if(compartilhado.data() != ultimoCupom) {
         
         var urlPath: String = "\(compartilhado.endereço)validarCupom.php?cupom=\(txtCodigo.text)"
@@ -98,9 +98,9 @@ class CuponsViewController: UIViewController, UITextFieldDelegate, UITableViewDa
         
         var resultado : NSDictionary = resultados[0] as NSDictionary
         
-        var premio : String = resultado["resultado"] as String
-        
-        if(premio == "OK") {
+        var valido : String = resultado["resultado"] as String
+        //Se o cupom for valido.
+        if(valido == "OK") {
         
         var temparray : NSArray = NSArray(objects: txtCodigo.text)
         
@@ -115,7 +115,22 @@ class CuponsViewController: UIViewController, UITextFieldDelegate, UITableViewDa
             //Solicita o número da recompensa.
             if(arrayCupons.count == limiteCupons) {
             
-                titulo.text = "Resgate com o código: S0001"
+                var urlPath: String = "\(compartilhado.endereço)pedido_Cupom.php"
+                var url: NSURL = NSURL(string: urlPath)!
+                var request1: NSURLRequest = NSURLRequest(URL: url)
+                var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
+                var error: NSErrorPointer = nil
+                var dataVal: NSData =  NSURLConnection.sendSynchronousRequest(request1, returningResponse: response, error:nil)!
+                var err: NSError
+                var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+                
+                var resultados : NSArray = jsonResult["resultados"] as NSArray
+                
+                var resultado : NSDictionary = resultados[0] as NSDictionary
+                
+                var pedido_cupom : String = resultado["pedido_cupom"] as String
+                
+                titulo.text = "Resgate com o código de pedido: \(pedido_cupom)"
             
             }
             
