@@ -33,7 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //usado para impedir novos pedidos em caso de um estar em andamento.
     var travarPedidos : Bool = false
     
-    var endereço : String = "http://localhost:8888/restaurante/json/"
+    //var endereço : String = "http://localhost:8888/restaurante/json/"
+    
+    var endereço : String = "http://www.megamil.net/restaurante/json/"
     
     func hoje() -> Int {
         let today = NSDate()

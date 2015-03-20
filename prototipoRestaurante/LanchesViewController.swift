@@ -18,7 +18,7 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let urlPath: String = "\(compartilhado.endereço)MysqlJsonLanches.php"
+        let urlPath: String = "\(compartilhado.endereço)MysqljsonLanches.php"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
