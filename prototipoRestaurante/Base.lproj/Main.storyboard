@@ -1009,6 +1009,7 @@
         <!--Cupom-->
         <scene sceneID="n5O-aL-uPi">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qew-KP-ObM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="gcc-Bt-v5U" customClass="CuponsViewController" customModule="prototipoRestaurante" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qwM-dO-Aud"/>
@@ -1021,7 +1022,7 @@
                             <view contentMode="scaleToFill" restorationIdentifier="viewSuperior" translatesAutoresizingMaskIntoConstraints="NO" id="fh8-h2-31d" userLabel="viewSuperior">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEUS CUPONS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQf-Ld-zxR">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEUS CUPONS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="XQf-Ld-zxR">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1317,7 +1318,6 @@
                         <outlet property="zerarCupons" destination="vMp-Hx-mHW" id="3OV-Bs-fVd"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qew-KP-ObM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="969" y="898.5"/>
         </scene>
