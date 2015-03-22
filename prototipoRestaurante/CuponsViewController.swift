@@ -22,7 +22,7 @@ class CuponsViewController: UIViewController, UITextFieldDelegate, UITableViewDa
     
     var ultimoCupom : String = String()
     //Define o número necessário de cupons para resgate do premio.
-    var limiteCupons : Int = 5
+    var limiteCupons : Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +41,7 @@ class CuponsViewController: UIViewController, UITextFieldDelegate, UITableViewDa
             
         }
         
-        var urlPath: String = "\(compartilhado.endereço)recompensa.php"
+        var urlPath: String = "\(compartilhado.endereço)recompensa.php?\(compartilhado.key)"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
@@ -85,7 +85,7 @@ class CuponsViewController: UIViewController, UITextFieldDelegate, UITableViewDa
         //Verifica se já foi cadastrado um cupom no dia.
         if(compartilhado.data() != ultimoCupom) {
         
-        var urlPath: String = "\(compartilhado.endereço)validarCupom.php?cupom=\(txtCodigo.text)"
+        var urlPath: String = "\(compartilhado.endereço)validarCupom.php?cupom=\(txtCodigo.text)&\(compartilhado.key)"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
@@ -115,7 +115,7 @@ class CuponsViewController: UIViewController, UITextFieldDelegate, UITableViewDa
             //Solicita o número da recompensa.
             if(arrayCupons.count == limiteCupons) {
             
-                var urlPath: String = "\(compartilhado.endereço)pedido_Cupom.php"
+                var urlPath: String = "\(compartilhado.endereço)pedido_Cupom.php?\(compartilhado.key)"
                 var url: NSURL = NSURL(string: urlPath)!
                 var request1: NSURLRequest = NSURLRequest(URL: url)
                 var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil

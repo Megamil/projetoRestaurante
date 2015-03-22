@@ -39,7 +39,7 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
             imagemSuperior.image = icone
             
             
-            let urlPath: String = "\(compartilhado.endereço)MysqlJsonItens.php?id=\(compartilhado.pratoSelecionado)"
+            let urlPath: String = "\(compartilhado.endereço)MysqlJsonItens.php?id=\(compartilhado.pratoSelecionado)&\(compartilhado.key)"
             var url: NSURL = NSURL(string: urlPath)!
             var request1: NSURLRequest = NSURLRequest(URL: url)
             var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
@@ -78,7 +78,7 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
         imagemSuperior.image = icone
         
         
-        let urlPath: String = "\(compartilhado.endereço)MysqlJsonItens.php?id=\(compartilhado.pratoSelecionado)"
+        let urlPath: String = "\(compartilhado.endereço)MysqlJsonItens.php?id=\(compartilhado.pratoSelecionado)&\(compartilhado.key)"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil

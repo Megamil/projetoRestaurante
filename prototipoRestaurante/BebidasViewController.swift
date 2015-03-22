@@ -20,7 +20,7 @@ class BebidasViewController: UIViewController, UITableViewDataSource, UITableVie
      override func viewDidLoad() {
         super.viewDidLoad()
 
-        let urlPath: String = "\(compartilhado.endereço)MysqlJsonBebidas.php"
+        let urlPath: String = "\(compartilhado.endereço)MysqlJsonBebidas.php?\(compartilhado.key)"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
@@ -114,7 +114,7 @@ class BebidasViewController: UIViewController, UITableViewDataSource, UITableVie
         
         var dias = ""
         
-        let urlPath: String = "\(compartilhado.endereço)diasBebidas.php?id=\(id)"
+        let urlPath: String = "\(compartilhado.endereço)diasBebidas.php?id=\(id)&\(compartilhado.key)"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
@@ -226,7 +226,7 @@ class BebidasViewController: UIViewController, UITableViewDataSource, UITableVie
         
         var dias = ""
         
-        let urlPath: String = "\(compartilhado.endereço)diasBebidas.php?id=\(id)"
+        let urlPath: String = "\(compartilhado.endereço)diasBebidas.php?id=\(id)&\(compartilhado.key)"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil

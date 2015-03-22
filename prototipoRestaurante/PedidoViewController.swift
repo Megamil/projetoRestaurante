@@ -187,7 +187,7 @@ class PedidoViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
         }
         
-        var urlPath: String = "\(compartilhado.endereço)pedir.php?preco=\(compartilhado.preçoTotal)&pratos=\(pratos)&lanches=\(lanches)&bebidas=\(bebidas)"
+        var urlPath: String = "\(compartilhado.endereço)pedir.php?preco=\(compartilhado.preçoTotal)&pratos=\(pratos)&lanches=\(lanches)&bebidas=\(bebidas)&\(compartilhado.key)"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil

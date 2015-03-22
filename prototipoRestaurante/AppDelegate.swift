@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var pratoSelecionado : Int = Int()
     //Registra o preço total do pedido.
     var preçoTotal : Float = 0.00
+    //Senha requerida pelo json
+    var key : String = "key=fasdhf12384avn"
     
     var window: UIWindow?
     //usado para não permitir que o usuário faça um pedido de um prato em um dia diferênte ao de hoje.

@@ -17,7 +17,7 @@ class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let urlPath: String = "\(compartilhado.endereço)MysqlJsonPratos.php?id=\(compartilhado.hoje())"
+        let urlPath: String = "\(compartilhado.endereço)MysqlJsonPratos.php?id=\(compartilhado.hoje())&\(compartilhado.key)"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil

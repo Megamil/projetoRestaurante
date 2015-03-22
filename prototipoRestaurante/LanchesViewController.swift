@@ -18,7 +18,7 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let urlPath: String = "\(compartilhado.endereço)MysqljsonLanches.php"
+        let urlPath: String = "\(compartilhado.endereço)MysqljsonLanches.php?\(compartilhado.key)"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
@@ -126,7 +126,7 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         var dias = ""
         
-        let urlPath: String = "\(compartilhado.endereço)diasLanches.php?id=\(id)"
+        let urlPath: String = "\(compartilhado.endereço)diasLanches.php?id=\(id)&\(compartilhado.key)"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
@@ -236,7 +236,7 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         var dias = ""
         
-        let urlPath: String = "\(compartilhado.endereço)diasLanches.php?id=\(id)"
+        let urlPath: String = "\(compartilhado.endereço)diasLanches.php?id=\(id)&\(compartilhado.key)"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
