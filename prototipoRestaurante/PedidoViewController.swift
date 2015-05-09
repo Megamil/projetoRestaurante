@@ -9,14 +9,15 @@
 import UIKit
 
 class PedidoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
+    var compartilhado = UIApplication.sharedApplication().delegate as! AppDelegate
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var label_Preço: UILabel!
     @IBOutlet weak var inputDivisao: UITextField!
     @IBOutlet weak var label_pedido: UILabel!
     @IBOutlet weak var botao_cancelar: UIButton!
-    
-    var compartilhado = UIApplication.sharedApplication().delegate as AppDelegate
+    var valor = 1
     
     @IBOutlet var appsTableView : UITableView?
     
@@ -24,6 +25,13 @@ class PedidoViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+    }
+
+    
+    override func viewDidAppear(animated: Bool) {
+
+            tableView.reloadData()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,7 +62,7 @@ class PedidoViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         var valor : Float = compartilhado.preçoTotal / dividir
         
-        var valor2 = NSString(format: "%.2f", valor) as String
+        var valor2 = NSString(format: "%.2f", valor) as! String
         
         var valorFormatado = valor2.stringByReplacingOccurrencesOfString(".", withString: ",", options: NSStringCompareOptions.LiteralSearch, range: nil)
         
@@ -79,7 +87,7 @@ class PedidoViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        var preçoFormatando : String = NSString(format: "%.2f", compartilhado.preçoTotal) as String
+        var preçoFormatando : String = NSString(format: "%.2f", compartilhado.preçoTotal) as! String
         
         var preçoFormatado = preçoFormatando.stringByReplacingOccurrencesOfString(".", withString: ",", options: NSStringCompareOptions.LiteralSearch, range: nil)
         
@@ -95,12 +103,12 @@ class PedidoViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
         }
         
-        var objeto : NSArray = compartilhado.arrayPedidos.objectAtIndex(indexPath.row) as NSArray
+        var objeto : NSArray = compartilhado.arrayPedidos.objectAtIndex(indexPath.row) as! NSArray
         
         celula?.textLabel?.text = objeto.objectAtIndex(0) as? String
         celula?.detailTextLabel?.text = objeto.objectAtIndex(1) as? String
         
-        var imagem : String = objeto.objectAtIndex(2) as String
+        var imagem : String = objeto.objectAtIndex(2) as! String
         
         var icone : UIImage? = UIImage(named: imagem)
         
@@ -154,6 +162,7 @@ class PedidoViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBAction func pedir() {
         
+        
         if (compartilhado.arrayPedidos.count > 0 && compartilhado.travarPedidos == false) {
         
         var pratos : String = String()
@@ -163,9 +172,9 @@ class PedidoViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         for(i; i < compartilhado.arrayPedidos.count; ++i){
         
-        var pedido : NSArray = compartilhado.arrayPedidos.objectAtIndex(i) as NSArray
+        var pedido : NSArray = compartilhado.arrayPedidos.objectAtIndex(i) as! NSArray
             
-        var referencia : String = pedido.objectAtIndex(5) as String
+        var referencia : String = pedido.objectAtIndex(5) as! String
             
         switch referencia {
             
@@ -194,13 +203,13 @@ class PedidoViewController: UIViewController, UITableViewDelegate, UITableViewDa
         var error: NSErrorPointer = nil
         var dataVal: NSData =  NSURLConnection.sendSynchronousRequest(request1, returningResponse: response, error:nil)!
         var err: NSError
-        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
         
-        var resultados : NSArray = jsonResult["resultados"] as NSArray
+        var resultados : NSArray = jsonResult["resultados"] as! NSArray
         
-        var resultado : NSDictionary = resultados[0] as NSDictionary
+        var resultado : NSDictionary = resultados[0] as! NSDictionary
         
-        var codPedido : String = resultado["pedidoNum"] as String
+        var codPedido : String = resultado["pedidoNum"] as! String
         
         label_pedido.text = "Pedido cadastrado com sucesso! \n informe o número \(codPedido) a um atendente"
         

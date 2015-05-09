@@ -9,7 +9,7 @@ import UIKit
 
 class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var compartilhado = UIApplication.sharedApplication().delegate as AppDelegate
+    var compartilhado = UIApplication.sharedApplication().delegate as! AppDelegate
     
     var arrayLanches : NSMutableArray = NSMutableArray()
     
@@ -25,36 +25,36 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
         var error: NSErrorPointer = nil
         var dataVal: NSData =  NSURLConnection.sendSynchronousRequest(request1, returningResponse: response, error:nil)!
         var err: NSError
-        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
         
-        var resultados : NSArray = jsonResult["resultados"] as NSArray
+        var resultados : NSArray = jsonResult["resultados"] as! NSArray
         
-        var i : Int = jsonResult["numResultados"] as Int
+        var i : Int = jsonResult["numResultados"] as! Int
         
         if (i > 0) {
             
             for x in 0...i-1
                 
             {
-                var resultado : NSDictionary = resultados[x] as NSDictionary
+                var resultado : NSDictionary = resultados[x] as! NSDictionary
                 
-                var lanche : String = resultado["nome_lanche"] as String
-                var preço : Float = NSString(string: resultado["preco_lanche"] as String).floatValue
+                var lanche : String = resultado["nome_lanche"] as! String
+                var preço : Float = NSString(string: resultado["preco_lanche"] as!String).floatValue
 
                 var acompanha : String = ""
                 var quantidade : Int = 0
                 var medida : String =  ""
                 
-                if resultado["bebida"] as NSString != ""{
+                if resultado["bebida"] as! NSString != ""{
                     
-                    acompanha = resultado["bebida"] as String
-                    quantidade = NSString(string: resultado["quantidade"] as String).integerValue
-                    medida = resultado["medida"] as String
+                    acompanha = resultado["bebida"] as! String
+                    quantidade = NSString(string: resultado["quantidade"] as! String).integerValue
+                    medida = resultado["medida"] as! String
                     
                 }
                 
                 //Formatando a string preço.
-                var preçoFormatado : String = NSString(format: "%.2f", preço) as String
+                var preçoFormatado : String = NSString(format: "%.2f", preço) as!String
                 
                 var preçoFormatado2 = preçoFormatado.stringByReplacingOccurrencesOfString(".", withString: ",", options: NSStringCompareOptions.LiteralSearch, range: nil)
                 
@@ -66,8 +66,8 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
                     descricao = "Acompanha : \(acompanha) \(quantidade) \(medida)"
                 }
                 
-                var img : String = resultado["descricao_ilustracao"] as String
-                var id : Int = NSString(string: resultado["id_lanche"] as String).integerValue
+                var img : String = resultado["descricao_ilustracao"] as! String
+                var id : Int = NSString(string: resultado["id_lanche"] as! String).integerValue
                 var referencia : String = "lanche"
                 var temparray : NSArray = NSArray(objects: titulo, descricao, img, id, preçoFormatado,referencia)
                 self.arrayLanches.addObject(temparray)
@@ -99,12 +99,12 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         }
         
-        var objeto : NSArray = self.arrayLanches.objectAtIndex(indexPath.row) as NSArray
+        var objeto : NSArray = self.arrayLanches.objectAtIndex(indexPath.row) as!NSArray
         
         celula?.textLabel?.text = objeto.objectAtIndex(0) as? String
         celula?.detailTextLabel?.text = objeto.objectAtIndex(1) as? String
         
-        var imagem : String = objeto.objectAtIndex(2) as String
+        var imagem : String = objeto.objectAtIndex(2) as!String
         
         var icone : UIImage? = UIImage(named: imagem)
         
@@ -116,13 +116,13 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        myObject = self.arrayLanches.objectAtIndex(indexPath.row) as NSArray
+        myObject = self.arrayLanches.objectAtIndex(indexPath.row) as!NSArray
         
-        let title : String = String(myObject.objectAtIndex(0) as String)
+        let title : String = String(myObject.objectAtIndex(0) as!String)
     
-        var mensagem : String = String(myObject.objectAtIndex(1) as String)
+        var mensagem : String = String(myObject.objectAtIndex(1) as!String)
         
-        var id : Int = myObject.objectAtIndex(3) as Int
+        var id : Int = myObject.objectAtIndex(3) as!Int
         
         var dias = ""
         
@@ -133,11 +133,11 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
 //        var error: NSErrorPointer = nil
 //        var dataVal: NSData =  NSURLConnection.sendSynchronousRequest(request1, returningResponse: response, error:nil)!
 //        var err: NSError
-//        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+//        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as!NSDictionary
 //        
-//        var resultados : NSArray = jsonResult["resultados"] as NSArray
+//        var resultados : NSArray = jsonResult["resultados"] as!NSArray
 //        
-//        var i : Int = jsonResult["numResultados"] as Int
+//        var i : Int = jsonResult["numResultados"] as!Int
 //        
 //        if (i > 0) {
 //            
@@ -146,12 +146,12 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
 //            for x in 0...i-1
 //                
 //            {
-//                var resultado : NSDictionary = resultados[x] as NSDictionary
+//                var resultado : NSDictionary = resultados[x] as!NSDictionary
 //                
-//                var dia : String = resultado["dia_semana"] as String
-//                var id : Int = NSString(string: resultado["id_semana"] as String).integerValue
+//                var dia : String = resultado["dia_semana"] as!String
+//                var id : Int = NSString(string: resultado["id_semana"] as!String).integerValue
 //                
-//                dias = "\(dias) \n \(dia)"
+//                dias!= "\(dias) \n \(dia)"
 //                
 //                if( compartilhado.boolPedir == false) {
 //                
@@ -178,7 +178,7 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
 //        
 //    }
         
-//      mensagem = "\(mensagem) \n Dias disponíveis: \(dias)"
+//      mensagem = "\(mensagem) \n Dias!disponíveis: \(dias)"
 
         
         var detalhes : UIAlertView = UIAlertView()
@@ -227,13 +227,13 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func sorteio(aleatorio: Int)
     {
-        myObject = self.arrayLanches.objectAtIndex(aleatorio) as NSArray
+        myObject = self.arrayLanches.objectAtIndex(aleatorio) as!NSArray
         
-        let title : String = String(myObject.objectAtIndex(0) as String)
+        let title : String = String(myObject.objectAtIndex(0) as!String)
         
-        var mensagem : String = String(myObject.objectAtIndex(1) as String)
+        var mensagem : String = String(myObject.objectAtIndex(1) as!String)
         
-        var id : Int = myObject.objectAtIndex(3) as Int
+        var id : Int = myObject.objectAtIndex(3) as!Int
         
         var dias = ""
 //        
@@ -244,11 +244,11 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
 //        var error: NSErrorPointer = nil
 //        var dataVal: NSData =  NSURLConnection.sendSynchronousRequest(request1, returningResponse: response, error:nil)!
 //        var err: NSError
-//        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+//        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as!NSDictionary
 //        
-//        var resultados : NSArray = jsonResult["resultados"] as NSArray
+//        var resultados : NSArray = jsonResult["resultados"] as!NSArray
 //        
-//        var i : Int = jsonResult["numResultados"] as Int
+//        var i : Int = jsonResult["numResultados"] as!Int
 //        
 //        if (i > 0) {
 //            
@@ -257,12 +257,12 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
 //            for x in 0...i-1
 //                
 //            {
-//                var resultado : NSDictionary = resultados[x] as NSDictionary
+//                var resultado : NSDictionary = resultados[x] as!NSDictionary
 //                
-//                var dia : String = resultado["dia_semana"] as String
-//                var id : Int = NSString(string: resultado["id_semana"] as String).integerValue
+//                var dia : String = resultado["dia_semana"] as!String
+//                var id : Int = NSString(string: resultado["id_semana"] as!String).integerValue
 //                
-//                dias = "\(dias) \n \(dia)"
+//                dias!= "\(dias) \n \(dia)"
 //                
 //                if( compartilhado.boolPedir == false) {
 //                    
@@ -296,7 +296,7 @@ class LanchesViewController: UIViewController, UITableViewDelegate, UITableViewD
 //            
 //        } else {
         
-//        mensagem = "\(mensagem) \n Dias disponíveis: \(dias)"
+//        mensagem = "\(mensagem) \n Dias!disponíveis: \(dias)"
         
         var detalhes : UIAlertView = UIAlertView()
         detalhes.delegate = self

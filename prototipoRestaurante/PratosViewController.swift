@@ -10,7 +10,7 @@ import UIKit
 
 class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var compartilhado = UIApplication.sharedApplication().delegate as AppDelegate
+    var compartilhado = UIApplication.sharedApplication().delegate as!AppDelegate
     
     var resultados : NSArray = NSArray()
 
@@ -24,41 +24,41 @@ class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDa
         var error: NSErrorPointer = nil
         var dataVal: NSData? =  NSURLConnection.sendSynchronousRequest(request1, returningResponse: response, error:nil)!
         var err: NSError
-        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal!, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal!, options: NSJSONReadingOptions.MutableContainers, error: nil) as!NSDictionary
         
-        resultados = jsonResult["resultados"] as NSArray
+        resultados = jsonResult["resultados"] as!NSArray
         
-        var i : Int = jsonResult["numResultados"] as Int
+        var i : Int = jsonResult["numResultados"] as!Int
         
         if (i > 0) {
             
             for x in 0...i-1
                 
             {
-                var resultado : NSDictionary = resultados[x] as NSDictionary
+                var resultado : NSDictionary = resultados[x] as!NSDictionary
                 
-                var prato : String = resultado["nome_prato"] as String
-                var preço : Float = NSString(string: resultado["preco_prato"] as String).floatValue
+                var prato : String = resultado["nome_prato"] as!String
+                var preço : Float = NSString(string: resultado["preco_prato"] as!String).floatValue
                 
                 var acompanha : String = ""
                 var quantidade : Int = 0
                 var medida : String =  ""
                 
-                if resultado["bebida"] as NSString != ""{
+                if resultado["bebida"] as!NSString != ""{
                     
-                    acompanha = resultado["bebida"] as String
-                    quantidade = NSString(string: resultado["quantidade"] as String).integerValue
-                    medida = resultado["medida"] as String
+                    acompanha = resultado["bebida"] as!String
+                    quantidade = NSString(string: resultado["quantidade"] as!String).integerValue
+                    medida = resultado["medida"] as!String
                     
                 }
                 
                 //Formatando a string preço.
-                var preçoFormatado : String = NSString(format: "%.2f", preço) as String
+                var preçoFormatado : String = NSString(format: "%.2f", preço) as!String
                 
                 var preçoFormatado2 = preçoFormatado.stringByReplacingOccurrencesOfString(".", withString: ",", options: NSStringCompareOptions.LiteralSearch, range: nil)
                 
                 var titulo : String = "\(prato) - R$ \(preçoFormatado2)"
-                var img : String = resultado["descricao_ilustracao"] as String
+                var img : String = resultado["descricao_ilustracao"] as!String
                 
                 var descricao : String = ""
                
@@ -67,7 +67,7 @@ class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
                 
                 
-                var id : Int = NSString(string: resultado["id_prato"] as String).integerValue
+                var id : Int = NSString(string: resultado["id_prato"] as!String).integerValue
                 var referencia : String = "prato"
                 var temparray : NSArray = NSArray(objects: titulo, descricao, img,id,preçoFormatado,referencia)
                 self.compartilhado.arrayPratos.addObject(temparray)
@@ -104,12 +104,12 @@ class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
         }
         
-        var objeto : NSArray = self.compartilhado.arrayPratos.objectAtIndex(indexPath.row) as NSArray
+        var objeto : NSArray = self.compartilhado.arrayPratos.objectAtIndex(indexPath.row) as!NSArray
         
         celula?.textLabel?.text = objeto.objectAtIndex(0) as? String
         celula?.detailTextLabel?.text = objeto.objectAtIndex(1) as? String
         
-        var imagem : String = objeto.objectAtIndex(2) as String
+        var imagem : String = objeto.objectAtIndex(2) as!String
         
         var icone : UIImage? = UIImage(named: imagem)
         
@@ -218,11 +218,11 @@ class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func sorteio (numero: Int) {
         
-        var resultado : NSDictionary = resultados[numero] as NSDictionary
+        var resultado : NSDictionary = resultados[numero] as!NSDictionary
         
         compartilhado.indicePrato = numero
         
-        compartilhado.pratoSelecionado = NSString(string: resultado["id_prato"] as String).integerValue
+        compartilhado.pratoSelecionado = NSString(string: resultado["id_prato"] as!String).integerValue
         
         var itens : ItensPratosViewController = ItensPratosViewController(nibName: "ItensPratosViewController", bundle: nil)
         
@@ -233,11 +233,11 @@ class PratosViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        var resultado : NSDictionary = resultados[indexPath.row] as NSDictionary
+        var resultado : NSDictionary = resultados[indexPath.row] as!NSDictionary
         
         compartilhado.indicePrato = indexPath.row
         
-        compartilhado.pratoSelecionado = NSString(string: resultado["id_prato"] as String).integerValue
+        compartilhado.pratoSelecionado = NSString(string: resultado["id_prato"] as!String).integerValue
         
         var itens : ItensPratosViewController = ItensPratosViewController(nibName: "ItensPratosViewController", bundle: nil)
         

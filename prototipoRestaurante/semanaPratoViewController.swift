@@ -11,7 +11,7 @@ import UIKit
 class semanaPratoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var titulo: UILabel!
-    var compartilhado = UIApplication.sharedApplication().delegate as AppDelegate
+    var compartilhado = UIApplication.sharedApplication().delegate as! AppDelegate
     var resultados : NSArray = NSArray()
     
     override func viewDidLoad() {
@@ -26,31 +26,31 @@ class semanaPratoViewController: UIViewController, UITableViewDelegate, UITableV
         var error: NSErrorPointer = nil
         var dataVal: NSData =  NSURLConnection.sendSynchronousRequest(request1, returningResponse: response, error:nil)!
         var err: NSError
-        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
         
-        resultados = jsonResult["resultados"] as NSArray
+        resultados = jsonResult["resultados"] as! NSArray
         
-        var i : Int = jsonResult["numResultados"] as Int
+        var i : Int = jsonResult["numResultados"] as! Int
         
         if (i > 0) {
             
             for x in 0...i-1
                 
             {
-                var resultado : NSDictionary = resultados[x] as NSDictionary
+                var resultado : NSDictionary = resultados[x] as! NSDictionary
                 
-                var prato : String = resultado["nome_prato"] as String
-                var preço : Float = NSString(string: resultado["preco_prato"] as String).floatValue
+                var prato : String = resultado["nome_prato"] as! String
+                var preço : Float = NSString(string: resultado["preco_prato"] as! String).floatValue
                 
                 var acompanha : String = ""
                 var quantidade : Int = 0
                 var medida : String =  ""
                 
-                if resultado["bebida"] as NSString != ""{
+                if resultado["bebida"] as! NSString != ""{
                     
-                    acompanha = resultado["bebida"] as String
-                    quantidade = NSString(string: resultado["quantidade"] as String).integerValue
-                    medida = resultado["medida"] as String
+                    acompanha = resultado["bebida"] as! String
+                    quantidade = NSString(string: resultado["quantidade"] as! String).integerValue
+                    medida = resultado["medida"] as! String
                     
                 }
                 
@@ -60,7 +60,7 @@ class semanaPratoViewController: UIViewController, UITableViewDelegate, UITableV
                 preçoFormatado = preçoFormatado.stringByReplacingOccurrencesOfString(".", withString: ",", options: NSStringCompareOptions.LiteralSearch, range: nil)
                 
                 var titulo : String = "\(prato) - R$ \(preçoFormatado)"
-                var img : String = resultado["descricao_ilustracao"] as String
+                var img : String = resultado["descricao_ilustracao"] as! String
                 
                 var descricao : String = ""
                 
@@ -93,12 +93,12 @@ class semanaPratoViewController: UIViewController, UITableViewDelegate, UITableV
             
         }
         
-        var objeto : NSArray = self.compartilhado.arrayPratosSemana.objectAtIndex(indexPath.row) as NSArray
+        var objeto : NSArray = self.compartilhado.arrayPratosSemana.objectAtIndex(indexPath.row) as! NSArray
         
         celula?.textLabel?.text = objeto.objectAtIndex(0) as? String
         celula?.detailTextLabel?.text = objeto.objectAtIndex(1) as? String
         
-        var imagem : String = objeto.objectAtIndex(2) as String
+        var imagem : String = objeto.objectAtIndex(2) as! String
         
         var icone : UIImage? = UIImage(named: imagem)
         
@@ -109,11 +109,11 @@ class semanaPratoViewController: UIViewController, UITableViewDelegate, UITableV
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        var resultado : NSDictionary = resultados[indexPath.row] as NSDictionary
+        var resultado : NSDictionary = resultados[indexPath.row] as! NSDictionary
         
         compartilhado.indicePrato = indexPath.row
         
-        compartilhado.pratoSelecionado = NSString(string: resultado["id_prato"] as String).integerValue
+        compartilhado.pratoSelecionado = NSString(string: resultado["id_prato"] as! String).integerValue
         if compartilhado.dia != compartilhado.hoje() {
          
             compartilhado.boolPedir = false

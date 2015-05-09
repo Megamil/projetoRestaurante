@@ -10,6 +10,7 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+
     //Variavel compartilhada que contém um array com os pedidos
     var arrayPedidos : NSMutableArray = NSMutableArray()
     //Variavel compartilhada que contém um array com os Pratos do dia
@@ -45,8 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         formatter.dateFormat = "yyyy-MM-dd"
         let data = formatter.stringFromDate(today)
         let stringData = formatter.dateFromString(data)
-        let myCalendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)
-        let myComponents = myCalendar?.components(.WeekdayCalendarUnit, fromDate: stringData!)
+        let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+        let myComponents = myCalendar?.components(NSCalendarUnit(), fromDate: stringData!)
         var weekDay = myComponents?.weekday
         
         return weekDay!.hashValue

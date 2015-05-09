@@ -19,7 +19,7 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var descricao: UILabel!
     @IBOutlet weak var imagemSuperior: UIImageView!
     
-    let compartilhado = UIApplication.sharedApplication().delegate as AppDelegate
+    let compartilhado = UIApplication.sharedApplication().delegate as! AppDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +31,11 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
         if compartilhado.boolPedir == false {
             pedir.setTitle("INFORMAÇÕES",  forState: UIControlState.Normal)
             
-            objeto = self.compartilhado.arrayPratosSemana.objectAtIndex(compartilhado.indicePrato) as NSArray
+            objeto = self.compartilhado.arrayPratosSemana.objectAtIndex(compartilhado.indicePrato) as! NSArray
             
             titulo?.text = objeto.objectAtIndex(0) as? String
             descricao?.text = objeto.objectAtIndex(1) as? String
-            var icone : UIImage? = UIImage(named: objeto.objectAtIndex(2) as String)
+            var icone : UIImage? = UIImage(named: objeto.objectAtIndex(2) as! String)
             imagemSuperior.image = icone
             
             
@@ -46,22 +46,22 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
             var error: NSErrorPointer = nil
             var dataVal: NSData =  NSURLConnection.sendSynchronousRequest(request1, returningResponse: response, error:nil)!
             var err: NSError
-            var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+            var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
             
-            var resultados : NSArray = jsonResult["resultados"] as NSArray
+            var resultados : NSArray = jsonResult["resultados"] as! NSArray
             
-            var i : Int = jsonResult["numResultados"] as Int
+            var i : Int = jsonResult["numResultados"] as! Int
             
             if (i > 0) {
                 
                 for x in 0...i-1
                     
                 {
-                    var resultado : NSDictionary = resultados[x] as NSDictionary
+                    var resultado : NSDictionary = resultados[x] as! NSDictionary
                     
-                    var item : String = resultado["descricao"] as String
+                    var item : String = resultado["descricao"] as! String
                     var titulo : String = "\(item)"
-                    var img : String = resultado["descricao_ilustracao"] as String
+                    var img : String = resultado["descricao_ilustracao"] as! String
                     
                     var temparray : NSArray = NSArray(objects: titulo, img)
                     self.arrayItens.addObject(temparray)
@@ -70,11 +70,11 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
             }
         } else {
 
-        objeto = self.compartilhado.arrayPratos.objectAtIndex(compartilhado.indicePrato) as NSArray
+        objeto = self.compartilhado.arrayPratos.objectAtIndex(compartilhado.indicePrato) as! NSArray
         
         titulo?.text = objeto.objectAtIndex(0) as? String
         descricao?.text = objeto.objectAtIndex(1) as? String
-        var icone : UIImage? = UIImage(named: objeto.objectAtIndex(2) as String)
+        var icone : UIImage? = UIImage(named: objeto.objectAtIndex(2) as! String)
         imagemSuperior.image = icone
         
         
@@ -85,22 +85,22 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
         var error: NSErrorPointer = nil
         var dataVal: NSData =  NSURLConnection.sendSynchronousRequest(request1, returningResponse: response, error:nil)!
         var err: NSError
-        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
         
-        var resultados : NSArray = jsonResult["resultados"] as NSArray
+        var resultados : NSArray = jsonResult["resultados"] as! NSArray
         
-        var i : Int = jsonResult["numResultados"] as Int
+        var i : Int = jsonResult["numResultados"] as! Int
         
         if (i > 0) {
             
             for x in 0...i-1
                 
             {
-                var resultado : NSDictionary = resultados[x] as NSDictionary
+                var resultado : NSDictionary = resultados[x] as! NSDictionary
                 
-                var item : String = resultado["descricao"] as String
+                var item : String = resultado["descricao"] as! String
                 var titulo : String = "\(item)"
-                var img : String = resultado["descricao_ilustracao"] as String
+                var img : String = resultado["descricao_ilustracao"] as! String
                 
                 var temparray : NSArray = NSArray(objects: titulo, img)
                 self.arrayItens.addObject(temparray)
@@ -127,11 +127,11 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
             
         }
         
-        var objeto : NSArray = self.arrayItens.objectAtIndex(indexPath.row) as NSArray
+        var objeto : NSArray = self.arrayItens.objectAtIndex(indexPath.row) as! NSArray
         
         celula?.textLabel?.text = objeto.objectAtIndex(0) as? String
         
-        var imagem : String = objeto.objectAtIndex(1) as String
+        var imagem : String = objeto.objectAtIndex(1) as! String
         
         var icone : UIImage? = UIImage(named: imagem)
         
@@ -143,9 +143,9 @@ class ItensPratosViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBAction func pedir(sender: AnyObject) {
         
-        let title : String = String(objeto.objectAtIndex(0) as String)
+        let title : String = String(objeto.objectAtIndex(0) as! String)
         
-        let mensagem : String = String(objeto.objectAtIndex(1) as String)
+        let mensagem : String = String(objeto.objectAtIndex(1) as! String)
         
         var detalhes : UIAlertView = UIAlertView()
         detalhes.delegate = self

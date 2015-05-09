@@ -10,7 +10,7 @@ import UIKit
 
 class CuponsViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate {
 
-    var compartilhado = UIApplication.sharedApplication().delegate as AppDelegate
+    var compartilhado = UIApplication.sharedApplication().delegate as! AppDelegate
     
     @IBOutlet weak var txtCodigo: UITextField!
     @IBOutlet weak var zerarCupons: UIButton!
@@ -48,13 +48,13 @@ class CuponsViewController: UIViewController, UITextFieldDelegate, UITableViewDa
         var error: NSErrorPointer = nil
         var dataVal: NSData =  NSURLConnection.sendSynchronousRequest(request1, returningResponse: response, error:nil)!
         var err: NSError
-        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
         
-        var resultados : NSArray = jsonResult["resultados"] as NSArray
+        var resultados : NSArray = jsonResult["resultados"] as! NSArray
         
-        var resultado : NSDictionary = resultados[0] as NSDictionary
+        var resultado : NSDictionary = resultados[0] as! NSDictionary
         
-        var premio : String = resultado["premio"] as String
+        var premio : String = resultado["premio"] as! String
         
         premioDesc.text = "Acumule cupons para ganhar: \(premio)"
         
@@ -92,13 +92,13 @@ class CuponsViewController: UIViewController, UITextFieldDelegate, UITableViewDa
         var error: NSErrorPointer = nil
         var dataVal: NSData =  NSURLConnection.sendSynchronousRequest(request1, returningResponse: response, error:nil)!
         var err: NSError
-        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
         
-        var resultados : NSArray = jsonResult["resultados"] as NSArray
+        var resultados : NSArray = jsonResult["resultados"] as! NSArray
         
-        var resultado : NSDictionary = resultados[0] as NSDictionary
+        var resultado : NSDictionary = resultados[0] as! NSDictionary
         
-        var valido : String = resultado["resultado"] as String
+        var valido : String = resultado["resultado"] as! String
         //Se o cupom for valido.
         if(valido == "OK") {
         
@@ -122,13 +122,13 @@ class CuponsViewController: UIViewController, UITextFieldDelegate, UITableViewDa
                 var error: NSErrorPointer = nil
                 var dataVal: NSData =  NSURLConnection.sendSynchronousRequest(request1, returningResponse: response, error:nil)!
                 var err: NSError
-                var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+                var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
                 
-                var resultados : NSArray = jsonResult["resultados"] as NSArray
+                var resultados : NSArray = jsonResult["resultados"] as! NSArray
                 
-                var resultado : NSDictionary = resultados[0] as NSDictionary
+                var resultado : NSDictionary = resultados[0] as! NSDictionary
                 
-                var pedido_cupom : String = resultado["pedido_cupom"] as String
+                var pedido_cupom : String = resultado["pedido_cupom"] as! String
                 
                 titulo.text = "Resgate com o código de pedido: \(pedido_cupom)"
             
@@ -190,7 +190,7 @@ class CuponsViewController: UIViewController, UITextFieldDelegate, UITableViewDa
             
         }
         
-        var objeto : NSArray = self.arrayCupons.objectAtIndex(indexPath.row) as NSArray
+        var objeto : NSArray = self.arrayCupons.objectAtIndex(indexPath.row) as! NSArray
         
         celula?.textLabel?.text = objeto.objectAtIndex(0) as? String
         
